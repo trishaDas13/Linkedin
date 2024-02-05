@@ -1,0 +1,112 @@
+header{
+    nav{
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem 3rem;
+        align-items: center;
+        img{
+            width: 150px;
+            cursor: pointer;
+        }
+        .login_butns{
+            display: flex;
+            gap: 30px;
+            button{
+                background: none;
+                width: 120px;
+                padding: 0.9rem;
+                border-radius: 35px;
+                cursor: pointer;
+                border: none;
+                outline: none;
+                font-size: 16px;
+                font-weight: 500;
+                &:first-child:hover{
+                    background-color: rgba(148, 147, 147, 0.19);
+                }
+                &:last-child{
+                    border: 1px solid rgb(0,115,177);
+                    color: rgb(0,115,177);
+                    &:hover{
+                        background-color: rgba(0, 115, 177, 0.178);
+                    }
+                }
+            }
+        }
+        
+    }
+}
+
+main{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 1rem;
+    .lottie_area{
+        width: 650px;
+        img{
+            width: 100%;
+        }
+    }
+    .form_area{
+        width: 600px;
+        padding: 0 2rem;
+        h1{
+            font-weight: 300;
+            font-size: 48px;
+            color: rgb(170, 60, 35);
+            margin-bottom: 20px;
+            margin-left: 2rem;
+        }
+        .form_field{
+            display: flex;
+            flex-direction: column;
+            margin-left: 2rem;
+            font-size: 12px;
+            font-weight: 500;
+            gap: 5px;
+            input{
+                height: 45px;
+                padding: 1rem;
+                margin-bottom: 20px;
+                width: 450px;
+                &::placeholder{
+                    font-size: 16px;
+                }
+                &:hover{
+                    border: 2px solid black;
+                    background-color: rgba(165, 165, 165, 0.253);
+                }
+            }
+        }
+        button{
+            cursor: pointer;
+            color: white;
+            background-color: rgb(0,115,177);
+            outline: none;
+            border: none;
+            padding: 0.6rem;
+            width: 100%;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 30px;
+            margin-bottom: 20px;
+            width: 450px;
+            margin-left: 2rem; 
+        }
+        .option_btns{
+            display: flex;
+            gap: 30px;
+            margin-top: 20px;   
+            button{
+                background-color: transparent;
+                border: 1px solid rgb(87, 87, 87);
+                color: black;
+                margin: 0;
+                &:hover{
+                    background-color: rgba(128, 128, 128, 0.158);
+                }
+            }
+        }
+    }
+}
