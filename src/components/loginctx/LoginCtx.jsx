@@ -1,13 +1,35 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './LoginCtx.scss'
-import { LoginAPI } from '../../api/AuthApi';
+import { LoginAPI, GoogleSignInAPI } from '../../api/AuthApi';
 import logo from '../../assets/logo.svg'
 import lottie from '../../assets/loginLoto.svg'
+import { useNavigate, Link } from "react-router-dom";
+import { toast } from 'react-toastify';
+import Home from '../../pages/home/Home';
 
 const LoginCtx = () => {
-  const login = () =>{
-    LoginAPI()
+
+  let navigate = useNavigate();
+  const [credentails, setCredentials] = useState({});
+
+  //todo: to handle  page after sign in successfull
+  const login = async(e) =>{
+    e.preventDefault();
+    try{
+      let res = await LoginAPI(credentails.email, credentails.password);
+      toast.success('Sign In to Linkedin')
+      navigate('/home')
+    }catch(err){
+      toast.error("Please Check your Log in Credentials");
+    }
   }
+
+  //todo:  for google sign in
+  const googleSignIn = () =>{
+    GoogleSignInAPI();
+    navigate('/home')
+  }
+
   return (
     <div className='LoginPage'>
       <header>
@@ -30,6 +52,7 @@ const LoginCtx = () => {
               <input 
                 type="email" 
                 placeholder='Enter you email here ...'
+                onChange={(e) => setCredentials({...credentails, email: e.target.value})}
                 required
               />
             </div>
@@ -38,15 +61,16 @@ const LoginCtx = () => {
               <input 
                 type="password"
                 placeholder='Enter password here...'
+                onChange={(e) => setCredentials({...credentails, password: e.target.value})}
                 required
               />
             </div>
-            <button className="signIn">Sign In</button>
+            <button onClick={login} className="signIn">Sign In</button>
           </form>
-          <hr />
+          <hr className="hr-text gradient" data-content="OR" />
           <div className="option_btns">
-            <button>Continue with Google</button>
-            <button>New to Linked in? Join Now</button>
+            <button onClick={googleSignIn}>Continue with Google</button>
+            <button>New to Linked in? <Link to='/register'>Join Now</Link></button>
           </div>
 
         </div>

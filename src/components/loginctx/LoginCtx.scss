@@ -1,112 +1,171 @@
-header{
-    nav{
-        display: flex;
-        justify-content: space-between;
-        padding: 1rem 3rem;
-        align-items: center;
-        img{
-            width: 150px;
-            cursor: pointer;
-        }
-        .login_butns{
-            display: flex;
-            gap: 30px;
-            button{
-                background: none;
-                width: 120px;
-                padding: 0.9rem;
-                border-radius: 35px;
-                cursor: pointer;
-                border: none;
-                outline: none;
-                font-size: 16px;
-                font-weight: 500;
-                &:first-child:hover{
-                    background-color: rgba(148, 147, 147, 0.19);
-                }
-                &:last-child{
-                    border: 1px solid rgb(0,115,177);
-                    color: rgb(0,115,177);
-                    &:hover{
-                        background-color: rgba(0, 115, 177, 0.178);
-                    }
-                }
-            }
-        }
-        
+header {
+  nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 3rem;
+    align-items: center;
+    flex-wrap: wrap;
+    img {
+      width: 150px;
+      cursor: pointer;
     }
+    .login_butns {
+      display: flex;
+      gap: 30px;
+      button {
+        background: none;
+        width: 120px;
+        padding: 0.9rem;
+        border-radius: 35px;
+        cursor: pointer;
+        border: none;
+        outline: none;
+        font-size: 16px;
+        font-weight: 500;
+        &:first-child:hover {
+          background-color: rgba(148, 147, 147, 0.19);
+        }
+        &:last-child {
+          border: 1px solid rgb(0, 115, 177);
+          color: rgb(0, 115, 177);
+          &:hover {
+            background-color: rgba(0, 115, 177, 0.178);
+          }
+        }
+        @media (max-width: 460px) {
+          padding: 0.3rem;
+        }
+      }
+      @media (max-width: 460px) {
+        gap: 10px;
+      }
+    }
+    @media (max-width: 460px) {
+      padding: 1rem;
+      gap: 10px;
+    }
+  }
 }
 
-main{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding: 0 1rem;
-    .lottie_area{
-        width: 650px;
-        img{
-            width: 100%;
-        }
+main {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 1rem;
+  .lottie_area {
+    width: 650px;
+    img {
+      width: 100%;
     }
-    .form_area{
-        width: 600px;
-        padding: 0 2rem;
-        h1{
-            font-weight: 300;
-            font-size: 48px;
-            color: rgb(170, 60, 35);
-            margin-bottom: 20px;
-            margin-left: 2rem;
-        }
-        .form_field{
-            display: flex;
-            flex-direction: column;
-            margin-left: 2rem;
-            font-size: 12px;
-            font-weight: 500;
-            gap: 5px;
-            input{
-                height: 45px;
-                padding: 1rem;
-                margin-bottom: 20px;
-                width: 450px;
-                &::placeholder{
-                    font-size: 16px;
-                }
-                &:hover{
-                    border: 2px solid black;
-                    background-color: rgba(165, 165, 165, 0.253);
-                }
-            }
-        }
-        button{
-            cursor: pointer;
-            color: white;
-            background-color: rgb(0,115,177);
-            outline: none;
-            border: none;
-            padding: 0.6rem;
-            width: 100%;
-            font-size: 15px;
-            font-weight: 600;
-            border-radius: 30px;
-            margin-bottom: 20px;
-            width: 450px;
-            margin-left: 2rem; 
-        }
-        .option_btns{
-            display: flex;
-            gap: 30px;
-            margin-top: 20px;   
-            button{
-                background-color: transparent;
-                border: 1px solid rgb(87, 87, 87);
-                color: black;
-                margin: 0;
-                &:hover{
-                    background-color: rgba(128, 128, 128, 0.158);
-                }
-            }
-        }
+    @media (max-width: 958px) {
+      display: none;
     }
+  }
+  .form_area {
+    max-width: 600px;
+    width: 100%;
+    padding: 2rem;
+    h1 {
+      font-weight: 300;
+      font-size: 48px;
+      color: rgb(170, 60, 35);
+      margin-bottom: 20px;
+      margin-left: 2rem;
+      @media (max-width: 560px) {
+        font-size: 32px;
+      }
+      @media (max-width: 460px) {
+        display: none;
+      }
+    }
+    .form_field {
+      display: flex;
+      flex-direction: column;
+      margin-left: 2rem;
+      font-size: 12px;
+      font-weight: 500;
+      gap: 5px;
+      input {
+        height: 45px;
+        padding: 1rem;
+        margin-bottom: 20px;
+        max-width: 450px;
+        width: 100%;
+        border-radius: 5px;
+        outline: none;
+        border: 1px solid rgba(165, 165, 165, 0.7);
+        &::placeholder {
+          font-size: 16px;
+        }
+        &:hover {
+          border: 2px solid black;
+          border-radius: 5px;
+          background-color: rgba(165, 165, 165, 0.253);
+        }
+      }
+      @media (max-width: 560px) {
+        margin: 0;
+      }
+    }
+    button {
+      cursor: pointer;
+      color: white;
+      background-color: rgb(0, 115, 177);
+      outline: none;
+      border: none;
+      padding: 0.6rem;
+      width: 100%;
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: 30px;
+      margin-bottom: 20px;
+      max-width: 450px;
+      margin-left: 2rem;
+      &:hover{
+        background-color: rgb(4, 75, 114);
+      }
+      @media (max-width: 560px) {
+        margin-left: 0;
+      }
+    }
+    .option_btns {
+      display: flex;
+      gap: 30px;
+      margin-top: 20px;
+      button {
+        background-color: transparent;
+        border: 1px solid rgb(87, 87, 87);
+        color: black;
+        margin: 0;
+        &:hover {
+          background-color: rgba(128, 128, 128, 0.158);
+        }
+      }
+    }
+    .hr-text {
+      border: 0;
+      line-height: 1em;
+      position: relative;
+      text-align: center;
+      height: 1.5em;
+      font-size: 14px;
+      &::before {
+        content: "";
+        background: linear-gradient(to right, transparent, black, transparent);
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 100%;
+        height: 1px;
+      }
+      &::after {
+        content: attr(data-content);
+        position: relative;
+        padding: 0 7px;
+        line-height: 1.5em;
+        color: black;
+        background-color: white;
+      }
+    }
+  }
 }

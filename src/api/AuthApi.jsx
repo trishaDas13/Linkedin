@@ -1,19 +1,39 @@
 import {
-    signInWithEmailAndPassword,
-    createUserWithEmailAndPassword,
-    GoogleAuthProvider,
-    signInWithPopup,
-    signOut
-  } from "firebase/auth";
-  import { auth } from '../FirebaseConfig'
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+  signOut,
+} from "firebase/auth";
+import { auth } from "../FirebaseConfig";
 
-//   let auth = getAuth();
+//todo: handle user log in
+export const LoginAPI = (email, password) => {
+  try {
+    let response = signInWithEmailAndPassword(auth, email, password);
+    return response;
+  } catch (err) {
+    return err;
+  }
+};
 
-export const LoginAPI = (email, password) =>{
+//todo: handle new user sign in
+export const RegisterAPI = (email, password) => {
+  try {
+    let response = createUserWithEmailAndPassword(auth, email, password);
+    return response;
+  } catch (err) {
+    return err;
+  }
+};
+
+//todo: hnadle log in with Google
+export const GoogleSignInAPI = () => {
     try {
-        let response = signInWithEmailAndPassword(auth, email, password);
-        return response;
-      } catch (err) {
-        return err;
-      }
-}
+      let googleProvider = new GoogleAuthProvider();
+      let res = signInWithPopup(auth, googleProvider);
+      return res;
+    } catch (err) {
+      return err;
+    }
+  };
