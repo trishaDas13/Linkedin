@@ -1,8 +1,12 @@
-import React from 'react'
+import React from 'react';
+import Topbar from '../common/topbar/Topbar';
+
 
 const HomeCtx = () => {
   return (
-    <div>HomeCtx</div>
+    <div>
+      <Topbar/>
+      HomeCtx</div>
   )
 }
 

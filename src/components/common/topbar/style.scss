@@ -1,0 +1,58 @@
+.topBar{
+    nav{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: white;
+        border-bottom: 1px solid rgba(167, 167, 167, 0.548);
+        box-shadow: 0 0 4px rgba(167, 167, 167, 0.548);
+        width: 100%;
+        padding: 0.5rem 2rem;
+        .logo_search_field{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+            input{
+                height: 30px;
+                width: 250px;
+                padding: 0.8rem;
+                color: grey;
+                background-color: rgb(237,243,248);
+                border: none;
+                outline: none;
+                border-radius: 5px;
+            }
+        }
+        ul{
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            li{
+                list-style-type: none;
+                cursor: pointer;
+                   .icon{
+                    font-size: 10px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
+                &:hover{
+                    scale: 1.15;
+                    transition: 0.3s ease-in-out;
+                }
+            }
+        }
+        .profile{
+            font-size: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            img{
+                width: 34px;
+                border-radius: 50%;
+            }
+        }
+    }
+}
