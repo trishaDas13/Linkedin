@@ -1,0 +1,22 @@
+.responsive_nav_ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: white;
+    padding: 0.6rem;
+    li{
+        list-style-type: none;
+        cursor: pointer;
+        .icon{
+            font-size: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+    }
+   
+}

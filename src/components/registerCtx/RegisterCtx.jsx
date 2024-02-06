@@ -17,6 +17,7 @@ const RegisterCtx = () => {
     try {
       let res = await RegisterAPI(credentails.email, credentails.password);
       toast.success("Successfully created your account");
+      localStorage.setItem("userEmail", res.user.email);
       navigate('/home')
     } catch (err) {
       toast.error("Please Check your Credentials");

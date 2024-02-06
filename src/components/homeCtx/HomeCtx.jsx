@@ -8,7 +8,7 @@ const HomeCtx = () => {
   return (
     <div className='homePage'>
       <PostUpdate/>
-      HomeCtx</div>
+      </div>
   )
 }
 

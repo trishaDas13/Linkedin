@@ -47,6 +47,17 @@
         flex-direction: column;
         cursor: pointer;
       }
+      @media (max-width: 539px){
+        margin-right: 0;
+        justify-content: end;
+        gap: 20px;
+      }
+    }
+    @media (max-width: 539px){
+      max-width: 400px;
+    }
+    @media (max-width: 409px){
+      max-width: 300px;
     }
   }
   .feed {
@@ -54,4 +65,5 @@
     flex-direction: column;
     gap: 20px;
   }
+  
 }

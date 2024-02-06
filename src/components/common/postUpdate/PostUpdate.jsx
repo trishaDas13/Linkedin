@@ -5,6 +5,8 @@ import avatar from "../../../assets/avatar.png";
 import ModalCtx from "../modal/Modal";
 import { postStatus, getStatus } from "../../../api/FireStoreAPI";
 import PostCard from "../postCard/PostCard";
+import GetTime from "./GetTime";
+
 
 const PostUpdate = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -13,10 +15,20 @@ const PostUpdate = () => {
   const [currentPost, setCurrentPost] = useState({});
   const [isEdit, setIsEdit] = useState(false);
   const [postImage, setPostImage] = useState("");
+  let userEmail = localStorage.getItem('userEmail')
 
   //todo: send status to firbase
   const sendStatus = async () => {
-    await postStatus(status);
+    let object = {
+        status: status,
+        timeStamp: GetTime("LLL"),
+        userEmail: userEmail,
+        // userName: currentUser.name,
+        // postID: getUniqueID(),
+        // userID: currentUser.id,
+        // postImage: postImage,
+      };
+    await postStatus(object);
     await setModalOpen(false);
     await setStatus("");
   };

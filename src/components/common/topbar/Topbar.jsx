@@ -11,6 +11,8 @@ import {
 import './style.scss';
 import avatar from '../../../assets/avatar.png';
 import { Link } from "react-router-dom";
+import ResponsiveNav from "./ResponsiveNav";
+
 
 
 const Topbar = () => {
@@ -24,7 +26,7 @@ const Topbar = () => {
                     
                 </div>
             </div>
-            <ul>
+            <ul className="nav_ul">
                 <li>
                     <Link to='/home'>
                         <div className="home icon">
@@ -67,8 +69,10 @@ const Topbar = () => {
             <div className="profile icon">
                 <img src={avatar} alt="my avatar" title="My profile"/>
             </div>
-
         </nav>
+        <div className="response">
+            <ResponsiveNav/>
+        </div>
     </header>
   );
 };

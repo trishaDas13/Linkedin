@@ -15,7 +15,8 @@
             position: relative;
             input{
                 height: 30px;
-                width: 250px;
+                max-width: 250px;
+                width: 100%;
                 padding: 0.8rem;
                 color: grey;
                 background-color: rgb(237,243,248);
@@ -24,7 +25,7 @@
                 border-radius: 5px;
             }
         }
-        ul{
+        .nav_ul{
             display: flex;
             align-items: center;
             gap: 40px;
@@ -42,6 +43,9 @@
                     color: black;
                 }
             }
+            @media (max-width: 783px){
+                display: none;
+            }
         }
         .profile{
             font-size: 12px;
@@ -53,6 +57,21 @@
                 width: 34px;
                 border-radius: 50%;
             }
+        }
+        @media (max-width: 349px){
+            padding: 0.5rem;
+        }
+    }
+    .response{
+        display: none;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        z-index: 10;
+        width: 100%;
+        box-shadow: 0 0 5px grey;
+        @media (max-width: 783px){
+            display: inline;
         }
     }
 }

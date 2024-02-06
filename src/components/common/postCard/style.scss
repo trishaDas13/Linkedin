@@ -4,7 +4,8 @@
     gap: 30px;
     border: 1px solid rgba(128, 128, 128, 0.393);
     border-radius: 10px;
-    width: 500px;
+    max-width: 500px;
+    width: 100%;
     padding: 1rem;
     position: relative;
     .post_user_profile{
@@ -32,7 +33,7 @@
     }
     .likeStorage{
         .likeCount{
-            font-size: 14px;
+            font-size: 12px;
             margin-bottom: 0.2rem;
         }
         .like_comment{
@@ -66,5 +67,22 @@
         display: flex;
         gap: 20px;
         cursor: pointer;
+    }
+    .toggleSeeMore{
+        background: transparent;
+        border: none;
+        outline: none;
+        color:rgb(63, 63, 146);
+        cursor: pointer;
+        font-weight: 600;
+        position: absolute;
+        right: 20px;
+        bottom: 70px;
+    }
+    @media (max-width: 539px){
+        max-width: 400px;
+    }
+    @media (max-width: 409px){
+        max-width: 300px;
     }
 }

@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.scss";
 import avatar from "../../../assets/avatar.png";
 
 const PostCard = ({ posts }) => {
+  const [showFullStatus, setShowFullStatus] = useState(false);
+  const maxStatusLength = 150; // Set your desired maximum length
+
+  const toggleStatus = () => {
+    setShowFullStatus(!showFullStatus);
+  };
+
   return (
     <div className="postCard">
       <div className="post_user_profile">
@@ -10,25 +17,38 @@ const PostCard = ({ posts }) => {
         <div className="content">
           <p className="name">Trisha Das</p>
           <p className="headline">Junior Developer at Geekster</p>
-          <p className="timeline">{Date.now()}</p>
+          <p className="timeline">{posts.timeStamp}</p>
         </div>
       </div>
-      <p className="postStatus">{posts.status}</p>
+      {posts.status.length > maxStatusLength ? (
+        <>
+          <p className="postStatus">
+            {showFullStatus ? posts.status : `${posts.status.slice(0, maxStatusLength)}...`}
+          </p>
+          <button onClick={toggleStatus} className="toggleSeeMore">
+            {showFullStatus ? "See Less" : "See More"}
+          </button>
+        </>
+      ) : (
+        <p className="postStatus">{posts.status}</p>
+      )}
       <div className="likeStorage">
-        <p className="likeCount"> 1 People Like this Post </p>
+        <p className="likeCount">1 People Like this Post</p>
         <hr />
         <div className="like_comment">
           <button>
-          <i className="fa-regular fa-heart"></i>
-            Like</button>
+            <i className="fa-regular fa-heart"></i>
+            Like
+          </button>
           <button>
-          <i class="fa-solid fa-comment-dots"></i>
-            Comment</button>
+            <i className="fa-solid fa-comment-dots"></i>
+            Comment
+          </button>
         </div>
       </div>
       <div className="edit_del">
-      <i className="fa-regular fa-pen-to-square"></i>
-      <i className="fa-solid fa-trash"></i>
+        <i className="fa-regular fa-pen-to-square"></i>
+        <i className="fa-solid fa-trash"></i>
       </div>
     </div>
   );

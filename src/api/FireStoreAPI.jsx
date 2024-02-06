@@ -21,10 +21,8 @@ let commentsRef = collection(firestore, "comments");
 let connectionRef = collection(firestore, "connections");
 
 //todo: store post in firestore
-export const postStatus = (status) => {
-    let object  = {
-        status : status
-    }
+export const postStatus = (object) => {
+  
     addDoc(postsRef, object)
       .then(() => {
         toast.success("Post has been added successfully");
