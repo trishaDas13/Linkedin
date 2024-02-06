@@ -1,0 +1,12 @@
+.modalInput{
+    border: none;
+    outline: none;
+    font-size: 16px;
+    margin: 0.7rem 0;
+    width: 100%;
+    resize: none;
+    padding: 0.7rem;
+    &::placeholder{
+        font-size: 18px;
+    }
+}

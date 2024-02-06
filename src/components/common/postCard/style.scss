@@ -1,0 +1,70 @@
+.postCard{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    border: 1px solid rgba(128, 128, 128, 0.393);
+    border-radius: 10px;
+    width: 500px;
+    padding: 1rem;
+    position: relative;
+    .post_user_profile{
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        img{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+        .content{
+            .name{
+                font-weight: 600;
+                &:hover{
+                    color: rgb(10,102,194);
+                    cursor: pointer;
+                    text-decoration: underline;
+                }
+            }
+            .headline, .timeline{
+                font-size: 12px;
+            }
+        }
+    }
+    .likeStorage{
+        .likeCount{
+            font-size: 14px;
+            margin-bottom: 0.2rem;
+        }
+        .like_comment{
+            display: flex;
+            gap: 10px;
+            margin-top: 0.5rem;
+            button{
+                background: transparent;
+                outline: none;
+                border: none;
+                font-size: 16px;
+                display: flex;
+                gap: 10px;
+                align-items: center;
+                cursor: pointer;
+                padding: 0.4rem 1rem;
+                &:hover{
+                    border-radius: 5px;
+                    transition: 0.3s ease-in-out;
+                    background-color: rgba(128, 128, 128, 0.393);
+                }
+            }
+        }
+        hr{
+            opacity: 0.4;
+        }
+    }
+    .edit_del{
+        position: absolute;
+        right: 20px;
+        display: flex;
+        gap: 20px;
+        cursor: pointer;
+    }
+}

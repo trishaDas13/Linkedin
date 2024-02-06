@@ -10,6 +10,8 @@ import {
 } from "./SVGstorage";
 import './style.scss';
 import avatar from '../../../assets/avatar.png';
+import { Link } from "react-router-dom";
+
 
 const Topbar = () => {
   return (
@@ -24,28 +26,36 @@ const Topbar = () => {
             </div>
             <ul>
                 <li>
-                    <div className="home icon">
-                        <HomeIcon/>
-                        <p>Home</p>
-                    </div>
+                    <Link to='/home'>
+                        <div className="home icon">
+                            <HomeIcon/>
+                            <p>Home</p>
+                        </div>
+                    </Link>
                 </li>
                 <li>
-                    <div className="network icon">
-                        <NetworkIcon/>
-                        <p>My Network</p>
-                    </div>
+                   <Link to='/network'>
+                        <div className="network icon">
+                            <NetworkIcon/>
+                            <p>My Network</p>
+                        </div>
+                   </Link>
                 </li>
                 <li>
+                    <Link to='jobs'>
                     <div className="jobs icon">
                         <JobsIcon/>
                         <p>Jobs</p>
                     </div>
+                    </Link>
                 </li>
                 <li>
-                    <div className="quotes icon">
-                        <QuotesIcon/>
-                        <p>Quotes</p>
-                    </div>
+                    <Link to='/quotes'>
+                        <div className="quotes icon">
+                            <QuotesIcon/>
+                            <p>Quotes</p>
+                        </div>
+                    </Link>
                 </li>
                 <li>
                     <div className="notification icon">
