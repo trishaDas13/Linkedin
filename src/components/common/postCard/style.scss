@@ -4,8 +4,7 @@
     gap: 30px;
     border: 1px solid rgba(128, 128, 128, 0.393);
     border-radius: 10px;
-    max-width: 500px;
-    width: 100%;
+    width: 500px;
     padding: 1rem;
     position: relative;
     .post_user_profile{
@@ -80,9 +79,9 @@
         bottom: 70px;
     }
     @media (max-width: 539px){
-        max-width: 400px;
+        width: 400px;
     }
     @media (max-width: 409px){
-        max-width: 300px;
+        width: 300px;
     }
 }

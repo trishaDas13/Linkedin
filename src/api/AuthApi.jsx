@@ -37,3 +37,12 @@ export const GoogleSignInAPI = () => {
       return err;
     }
   };
+
+//todo: handle user log out 
+export const onLogout = () => {
+  try {
+    signOut(auth);
+  } catch (err) {
+    return err;
+  }
+};

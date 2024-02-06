@@ -4,10 +4,11 @@ import PostUpdate from '../common/postUpdate/PostUpdate';
 import './style.scss'
 
 
-const HomeCtx = () => {
+const HomeCtx = ({currentUser}) => {
+  
   return (
     <div className='homePage'>
-      <PostUpdate/>
+      <PostUpdate currentUser={currentUser}/>
       </div>
   )
 }

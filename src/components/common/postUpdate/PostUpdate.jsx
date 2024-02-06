@@ -6,9 +6,10 @@ import ModalCtx from "../modal/Modal";
 import { postStatus, getStatus } from "../../../api/FireStoreAPI";
 import PostCard from "../postCard/PostCard";
 import GetTime from "./GetTime";
+import { nanoid } from 'nanoid'
 
 
-const PostUpdate = () => {
+const PostUpdate = ({currentUser}) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [status, setStatus] = useState("");
   const [allStatuses, setAllStatus] = useState([]);
@@ -16,16 +17,16 @@ const PostUpdate = () => {
   const [isEdit, setIsEdit] = useState(false);
   const [postImage, setPostImage] = useState("");
   let userEmail = localStorage.getItem('userEmail')
-
+  
   //todo: send status to firbase
   const sendStatus = async () => {
     let object = {
         status: status,
         timeStamp: GetTime("LLL"),
-        userEmail: userEmail,
-        // userName: currentUser.name,
-        // postID: getUniqueID(),
-        // userID: currentUser.id,
+        userEmail: currentUser.email,
+        userName: currentUser.name,
+        postID: nanoid(),
+        userID: currentUser.id,
         // postImage: postImage,
       };
     await postStatus(object);

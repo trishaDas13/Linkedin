@@ -6,6 +6,7 @@ import Network from "../pages/Network/Network";
 import Jobs from "../pages/jobs/Jobs";
 import Quotes from "../pages/quotes/Quotes";
 import Layout from "../layout/Layout";
+import Profile from "../pages/profile/Profile"
 
 
 export const router = createBrowserRouter([
@@ -36,6 +37,10 @@ export const router = createBrowserRouter([
       {
         path: "/quotes",
         element: <Quotes />,
+      },
+      {
+        path: "/profile",
+        element: <Profile/>
       }
     ]
   }

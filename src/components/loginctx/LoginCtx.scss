@@ -12,7 +12,7 @@ header {
     .login_butns {
       display: flex;
       gap: 30px;
-      button {
+      .signIn {
         background: none;
         width: 120px;
         padding: 0.9rem;
@@ -22,9 +22,6 @@ header {
         outline: none;
         font-size: 16px;
         font-weight: 500;
-        &:first-child:hover {
-          background-color: rgba(148, 147, 147, 0.19);
-        }
         &:last-child {
           border: 1px solid rgb(0, 115, 177);
           color: rgb(0, 115, 177);
@@ -34,6 +31,22 @@ header {
         }
         @media (max-width: 460px) {
           padding: 0.3rem;
+        }
+      }
+      a{
+        button{
+          background: none;
+          width: 120px;
+          padding: 0.9rem;
+          border-radius: 35px;
+          cursor: pointer;
+          border: none;
+          outline: none;
+          font-size: 16px;
+          font-weight: 500;
+          &:hover {
+            background-color: rgba(121, 119, 119, 0.178);
+          }
         }
       }
       @media (max-width: 460px) {

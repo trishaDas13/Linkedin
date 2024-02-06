@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {
   LinkedinLogo,
   NotificationIcon,
@@ -12,10 +12,14 @@ import './style.scss';
 import avatar from '../../../assets/avatar.png';
 import { Link } from "react-router-dom";
 import ResponsiveNav from "./ResponsiveNav";
-
-
+import ProfilePopUp from "../profilePopup/ProfilePopUp";
 
 const Topbar = () => {
+    const [popupOpen, setPopupOpen] = useState(false);
+
+  const togglePopup = () => {
+    setPopupOpen(!popupOpen);
+  };
   return (
     <header className="topBar">
         <nav>
@@ -67,12 +71,18 @@ const Topbar = () => {
                 </li>
             </ul>
             <div className="profile icon">
-                <img src={avatar} alt="my avatar" title="My profile"/>
+                <img 
+                    src={avatar} 
+                    alt="my avatar" 
+                    title="My profile"
+                    onClick={togglePopup}
+                />
             </div>
         </nav>
         <div className="response">
             <ResponsiveNav/>
         </div>
+        {popupOpen && <ProfilePopUp />}
     </header>
   );
 };

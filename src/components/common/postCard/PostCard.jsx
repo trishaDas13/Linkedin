@@ -15,7 +15,7 @@ const PostCard = ({ posts }) => {
       <div className="post_user_profile">
         <img src={avatar} alt="profilePic" />
         <div className="content">
-          <p className="name">Trisha Das</p>
+          <p className="name">{posts.userName}</p>
           <p className="headline">Junior Developer at Geekster</p>
           <p className="timeline">{posts.timeStamp}</p>
         </div>

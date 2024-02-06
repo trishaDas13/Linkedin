@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useRef} from 'react'
 import './LoginCtx.scss'
 import { LoginAPI, GoogleSignInAPI } from '../../api/AuthApi';
 import logo from '../../assets/logo.svg'
@@ -11,6 +11,8 @@ const LoginCtx = () => {
 
   let navigate = useNavigate();
   const [credentails, setCredentials] = useState({});
+  const emailInputRef = useRef(null);
+  const passwordInputRef = useRef(null);
 
   //todo: to handle  page after sign in successfull
   const login = async(e) =>{
@@ -31,14 +33,21 @@ const LoginCtx = () => {
     navigate('/home')
   }
 
+  //todo: focus input fields if empty
+  const focusInputFields = () =>{
+    if (emailInputRef.current) {
+      emailInputRef.current.focus();
+    }
+  }
+
   return (
     <div className='LoginPage'>
       <header>
         <nav>
             <img src={logo} alt="Linked in Logo" />
             <div className="login_butns">
-              <button>Join Now</button>
-              <button>Sign in</button>
+            <Link to='/register'><button>Join Now</button></Link>
+              <button className='signIn' onClick={ focusInputFields }>Sign in</button>
             </div>
         </nav>
       </header>
@@ -54,6 +63,7 @@ const LoginCtx = () => {
                 type="email" 
                 placeholder='Enter you email here ...'
                 onChange={(e) => setCredentials({...credentails, email: e.target.value})}
+                ref={emailInputRef}
                 required
               />
             </div>
@@ -63,6 +73,7 @@ const LoginCtx = () => {
                 type="password"
                 placeholder='Enter password here...'
                 onChange={(e) => setCredentials({...credentails, password: e.target.value})}
+                ref={passwordInputRef}
                 required
               />
             </div>

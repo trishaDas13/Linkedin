@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import Loader from '../../components/common/Loader/Loader';
 
 
-const Home = () => {
+const Home = ({currentUser}) => {
     const [loading, setLoading] = useState(true);
     const  navigate = useNavigate();
 
@@ -21,7 +21,7 @@ const Home = () => {
     }, [])
 
   return (
-     loading ? <Loader /> : <HomeCtx />
+     loading ? <Loader /> : <HomeCtx currentUser={currentUser} />
   )
 }
 
