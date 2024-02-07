@@ -103,3 +103,70 @@ export const getSingleStatus = (setAllStatus, id) => {
     );
   });
 };
+
+//todo: Like post functionality 
+export const likePost = (userId, postId, liked) => {
+   try {
+    let docToLike = doc(likeRef, `${userId}_${postId}`);
+    if (liked) {
+      deleteDoc(docToLike);
+    } else {
+      setDoc(docToLike, { userId, postId });
+    }
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+//todo: get likes from user 
+export const getLikesByUser = (userId, postId, setLiked, setLikesCount) => {
+  try {
+    let likeQuery = query(likeRef, where("postId", "==", postId));
+
+    onSnapshot(likeQuery, (response) => {
+      let likes = response.docs.map((doc) => doc.data());
+      let likesCount = likes?.length;
+
+      const isLiked = likes.some((like) => like.userId === userId);
+
+      setLikesCount(likesCount);
+      setLiked(isLiked);
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+//todo: handle post comment
+export const postComment = (postId, comment, timeStamp, name) => {
+  try {
+    addDoc(commentsRef, {
+      postId,
+      comment,
+      timeStamp,
+      name,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+//todo: get comments from firestore
+export const getComments = (postId, setComments) => {
+  try {
+    let singlePostQuery = query(commentsRef, where("postId", "==", postId));
+
+    onSnapshot(singlePostQuery, (response) => {
+      const comments = response.docs.map((doc) => {
+        return {
+          id: doc.id,
+          ...doc.data(),
+        };
+      });
+
+      setComments(comments);
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};

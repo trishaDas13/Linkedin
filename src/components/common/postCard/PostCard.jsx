@@ -1,16 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import "./style.scss";
 import avatar from "../../../assets/avatar.png";
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+import LikeButton from "../likeButton/LikeButton";
+import { getCurrentUser } from "../../../api/FireStoreAPI";
+
 
 const PostCard = ({ posts }) => {
   const [showFullStatus, setShowFullStatus] = useState(false);
+  const [currentUser, setCurrentUser] = useState({});
   const maxStatusLength = 150; 
   const navigate = useNavigate();
 
   const toggleStatus = () => {
     setShowFullStatus(!showFullStatus);
   };
+  useMemo(() => {
+    getCurrentUser(setCurrentUser);
+    // getAllUsers(setAllUsers);
+  }, []);
 
   return (
     <div className="postCard">
@@ -23,7 +31,7 @@ const PostCard = ({ posts }) => {
               email: posts?.userEmail
             }
           })}>{posts.userName}</p>
-          <p className="headline">Junior Developer at Geekster</p>
+          <p className="headline">{currentUser.headline}</p>
           <p className="timeline">{posts.timeStamp}</p>
         </div>
       </div>
@@ -39,20 +47,12 @@ const PostCard = ({ posts }) => {
       ) : (
         <p className="postStatus">{posts.status}</p>
       )}
-      <div className="likeStorage">
-        <p className="likeCount">1 People Like this Post</p>
-        <hr />
-        <div className="like_comment">
-          <button>
-            <i className="fa-regular fa-heart"></i>
-            Like
-          </button>
-          <button>
-            <i className="fa-solid fa-comment-dots"></i>
-            Comment
-          </button>
-        </div>
-      </div>
+      <LikeButton
+         userId={currentUser?.id}
+         currentUser={currentUser}
+         postId={posts.id}
+      />
+     
       <div className="edit_del">
         <i className="fa-regular fa-pen-to-square"></i>
         <i className="fa-solid fa-trash"></i>
