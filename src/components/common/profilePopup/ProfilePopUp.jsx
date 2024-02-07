@@ -12,6 +12,7 @@ const ProfilePopUp = () => {
     const popUpCloseHandeller = () =>{
         setPopUpClose(true);
     }
+    
 
   return (
     <div className='popUp'>
@@ -30,4 +31,4 @@ const ProfilePopUp = () => {
   )
 }
 
-export default ProfilePopUp
+export default ProfilePopUp;

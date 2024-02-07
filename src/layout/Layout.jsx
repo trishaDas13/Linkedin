@@ -1,5 +1,4 @@
 import React, {useMemo, useState} from 'react';
-import { Outlet } from 'react-router-dom';
 import Topbar from '../components/common/topbar/Topbar';
 import { getCurrentUser } from '../api/FireStoreAPI';
 import { Routes, Route } from 'react-router-dom'; 
@@ -8,6 +7,7 @@ import Network from '../pages/Network/Network';
 import Quotes from '../pages/quotes/Quotes';
 import Jobs from '../pages/jobs/Jobs';
 import Profile from '../pages/profile/Profile';
+import Error from '../pages/errorPage/Error';
 
 
 
@@ -41,8 +41,9 @@ const Layout = () => {
           />
           <Route
             path= "/profile"
-            element= {<Profile />}
+            element= {<Profile currentUser={currentUser}/>}
           />
+
         </Routes>
     </div>
   )

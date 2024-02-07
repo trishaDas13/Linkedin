@@ -1,9 +1,13 @@
-import React from 'react'
+import React from 'react';
+import ProfileCard from '../common/profileCard/ProfileCard';
+import './style.scss'
 
-const ProfileCtx = () => {
+const ProfileCtx = ({currentUser}) => {
   return (
-    <div>ProfileCtx</div>
+    <div className='profileCtx'>
+      <ProfileCard currentUser={currentUser}/>
+    </div>
   )
 }
 
-export default ProfileCtx
+export default ProfileCtx;
