@@ -16,7 +16,6 @@ const PostUpdate = ({currentUser}) => {
   const [currentPost, setCurrentPost] = useState({});
   const [isEdit, setIsEdit] = useState(false);
   const [postImage, setPostImage] = useState("");
-  let userEmail = localStorage.getItem('userEmail')
   
   //todo: send status to firbase
   const sendStatus = async () => {
@@ -33,9 +32,12 @@ const PostUpdate = ({currentUser}) => {
     await setModalOpen(false);
     await setStatus("");
   };
+  
   useMemo(() => {
     getStatus(setAllStatus);
   }, []);
+
+  //todo: render UI
   return (
     <div className="feedPost">
       <div className="PostBox">

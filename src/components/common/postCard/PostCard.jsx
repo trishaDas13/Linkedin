@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import "./style.scss";
 import avatar from "../../../assets/avatar.png";
+import { useNavigate } from 'react-router-dom'
 
 const PostCard = ({ posts }) => {
   const [showFullStatus, setShowFullStatus] = useState(false);
-  const maxStatusLength = 150; // Set your desired maximum length
+  const maxStatusLength = 150; 
+  const navigate = useNavigate();
 
   const toggleStatus = () => {
     setShowFullStatus(!showFullStatus);
@@ -15,7 +17,12 @@ const PostCard = ({ posts }) => {
       <div className="post_user_profile">
         <img src={avatar} alt="profilePic" />
         <div className="content">
-          <p className="name">{posts.userName}</p>
+          <p className="name" onClick={() => navigate('/profile',{
+            state:{
+              id: posts?.userID,
+              email: posts?.userEmail
+            }
+          })}>{posts.userName}</p>
           <p className="headline">Junior Developer at Geekster</p>
           <p className="timeline">{posts.timeStamp}</p>
         </div>

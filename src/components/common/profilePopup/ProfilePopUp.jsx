@@ -1,17 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { onLogout } from '../../../api/AuthApi';
 import './style.scss';
 import avatar from '../../../assets/avatar.png'
-import { Link } from 'react-router-dom';
-
+import { Link, useNavigate } from 'react-router-dom';
+import { getCurrentUser } from '../../../api/FireStoreAPI';
 
 const ProfilePopUp = () => {
 
     const[popUpClose, setPopUpClose] = useState(false);
+    let navigate = useNavigate();
+    const [currentUser, setCurrentUser] = useState({});
 
-    const popUpCloseHandeller = () =>{
-        setPopUpClose(true);
-    }
+    // Get current user information when the component is mounted 
+    useMemo(() => {
+        getCurrentUser(setCurrentUser);
+      }, []);
+
+    // const popUpCloseHandeller = () =>{
+    //     setPopUpClose(true);
+    // }
     
 
   return (
@@ -19,12 +26,18 @@ const ProfilePopUp = () => {
         <div className="popUp_profile">
             <img src={avatar} alt="" />
             <div className="popUp_name">
-                <p className='popUp_name_user'> Trisha Das </p>
-                <p> trishadas@gmail.com</p>
-                <p>Junior Developer at Geekster</p>
+                <p className='popUp_name_user'> {currentUser?.name} </p>
+                <p> {currentUser?.email}</p>
+                <p>{currentUser?.headline}</p>
             </div>
         </div>
-        <Link to='/profile'><button onClick={popUpCloseHandeller}>View Profile</button></Link>
+        <button onClick={() =>
+          navigate("/profile", {
+            state: {
+              id: currentUser?.id,
+            },
+          })
+        }>View Profile</button>
         <hr />
         <p className='signOut' onClick={onLogout}>Sign Out</p>
     </div>

@@ -3,13 +3,21 @@
     max-width: 850px;
     width: 100%;
     border-radius: 10px;
+    background-color: white;
     .user_img{
+        position: relative;
         img{
             width: 100%;
             height: 200px;
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
             cursor: pointer;
+        }
+        .fa-pen-to-square{
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
         }
     }
     .content{
@@ -25,7 +33,6 @@
             cursor: pointer;
         }
         .user_info{
-            margin-top: 2rem;
             padding: 2rem;
             width: 60%;
             .user_name{
@@ -71,13 +78,15 @@
         }
     }
 }
-.user_skills{
+.user_skills, .user_about{
     border: 1px solid rgba(151, 150, 150, 0.39);
     max-width: 850px;
     width: 100%;
     border-radius: 10px;
+    position: relative;
     padding: 2rem;
-    h3{
+    background-color: white;
+    h2{
         font-weight: 500;
     }
     .single_skill{
@@ -96,5 +105,44 @@
     }
     hr{
         opacity:  0.3;
+    }
+    .fa-pen-to-square{
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        color: rgb(71, 71, 71);
+    }
+}
+.user_about{
+    p{
+        font-size: 15px;
+        margin: 0.5rem;
+    }
+    .fa-pen-to-square{
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        color: rgb(71, 71, 71);
+    }
+}
+.user_feed{
+    border: 1px solid rgba(151, 150, 150, 0.39);
+    max-width: 850px;
+    width: 100%;
+    border-radius: 10px;
+    padding: 2rem;
+    background-color: white;
+    .feed{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        background-color: white;
+        flex-direction: column;
+    }
+    h2{
+        font-weight: 500;
+        margin: 0.6rem;
     }
 }

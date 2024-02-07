@@ -65,3 +65,41 @@ export const getCurrentUser = (setCurrentUser) => {
     );
   });
 };
+
+//todo: set user information from profile editing
+export const editProfile = (userID, payload) => {
+  let userToEdit = doc(userRef, userID);
+
+  updateDoc(userToEdit, payload)
+    .then(() => {
+      toast.success("Profile has been updated successfully");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+//todo: get each user from firestore
+export const getSingleUser = (setCurrentUser, email) => {
+  const singleUserQuery = query(userRef, where("email", "==", email));
+  onSnapshot(singleUserQuery, (response) => {
+    setCurrentUser(
+      response.docs.map((docs) => {
+        return { ...docs.data(), id: docs.id };
+      })[0]
+    );
+  });
+};
+
+
+//todo: get corresponding posts from firestore
+export const getSingleStatus = (setAllStatus, id) => {
+  const singlePostQuery = query(postsRef, where("userID", "==", id));
+  onSnapshot(singlePostQuery, (response) => {
+    setAllStatus(
+      response.docs.map((docs) => {
+        return { ...docs.data(), id: docs.id };
+      })
+    );
+  });
+};
