@@ -8,6 +8,10 @@
         box-shadow: 0 0 4px rgba(167, 167, 167, 0.548);
         width: 100%;
         padding: 0.5rem 2rem;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 10;
         .logo_search_field{
             display: flex;
             align-items: center;
