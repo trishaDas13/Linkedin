@@ -8,6 +8,8 @@ const ModalCtx = ({
   setStatus,
   status,
   sendStatus,
+  isEdit,
+  updateStatus
 }) => {
   return (
     <>
@@ -17,16 +19,18 @@ const ModalCtx = ({
           top: 20,
         }}
         open={modalOpen}
-        onOk={() => setModalOpen(false)}
-        onCancel={() => setModalOpen(false)}
+        onOk={() => {setModalOpen(false)
+          setStatus("")}}
+        onCancel={() => {setModalOpen(false)
+                       setStatus("")}}
         footer={
           <Button
             key="submit"
             type="primary"
             disabled={status.length > 0 ? false : true}
-            onClick={sendStatus}
+            onClick={isEdit ? updateStatus : sendStatus}
           >
-            Post
+            {isEdit ? 'Update' : 'Post'}
           </Button>
         }
       >

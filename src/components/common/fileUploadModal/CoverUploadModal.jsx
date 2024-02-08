@@ -31,7 +31,7 @@ const CoverUploadModal = ({
       >
          {progress === 0 ? <></> : <Progress percent={progress} />}
         <div className="chooseCover">
-          <label class="file">Upload Cover Photo </label>
+          <label className="file">Upload Cover Photo </label>
           <input
             type="file"
             id="file"

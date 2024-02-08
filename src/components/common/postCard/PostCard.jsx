@@ -3,12 +3,13 @@ import "./style.scss";
 import avatar from "../../../assets/avatar.png";
 import { useNavigate } from 'react-router-dom';
 import LikeButton from "../likeButton/LikeButton";
-import { getCurrentUser } from "../../../api/FireStoreAPI";
+import { getCurrentUser,getAllUsers, deletePost } from "../../../api/FireStoreAPI";
 
 
-const PostCard = ({ posts }) => {
+const PostCard = ({ posts, getEditData}) => {
   const [showFullStatus, setShowFullStatus] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
+  const[allUsers, setAllUsers] = useState([]);
   const maxStatusLength = 150; 
   const navigate = useNavigate();
 
@@ -17,13 +18,15 @@ const PostCard = ({ posts }) => {
   };
   useMemo(() => {
     getCurrentUser(setCurrentUser);
-    // getAllUsers(setAllUsers);
+    getAllUsers(setAllUsers);
   }, []);
-
+  
   return (
     <div className="postCard">
       <div className="post_user_profile">
-        <img src={avatar} alt="profilePic" />
+        <img src={allUsers
+              .filter((item) => item.id === posts.userID)
+              .map((item) => item.profileLink)[0]} alt="profilePic" />
         <div className="content">
           <p className="name" onClick={() => navigate('/profile',{
             state:{
@@ -52,11 +55,20 @@ const PostCard = ({ posts }) => {
          currentUser={currentUser}
          postId={posts.id}
       />
-     
-      <div className="edit_del">
-        <i className="fa-regular fa-pen-to-square"></i>
-        <i className="fa-solid fa-trash"></i>
+     {
+      currentUser.id === posts.userID ? (
+        <div className="edit_del">
+        <i 
+          className="fa-regular fa-pen-to-square"
+          onClick={() => getEditData(posts)}
+        ></i>
+        <i className="fa-solid fa-trash" onClick={() => deletePost(posts.id)}></i>
       </div>
+      ) : (
+        <></>
+      )
+     }
+      
     </div>
   );
 };

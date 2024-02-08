@@ -7,7 +7,7 @@ import PostCard from "../postCard/PostCard";
 import {
   getSingleUser,
   getSingleStatus,
-  editProfile
+  
 } from "../../../api/FireStoreAPI";
 import { useLocation } from "react-router-dom";
 import { uploadProfileImage as uploadProfileImageAPI } from "../../../api/ImageStoreAPI";
@@ -77,30 +77,34 @@ const ProfileCard = ({ currentUser, onEdit }) => {
       <div className="user_profile_card">
         <div className="user_img">
 
-          {
-            !currentProfile?.coverLink ? (
+          {/* {
+            currentProfile?.coverLink ? (
               <img src={background} alt="background image" onClick={()=>setCoverModalOpen(true)}/>
             ) : (
               <img src={Object.values(currentProfile).length === 0
                 ? currentUser.coverLink
                 : currentProfile?.coverLink} alt="background image" onClick={()=>setCoverModalOpen(true)}/>
             )
-          }
+          } */}
+          <img src={currentUser.coverLink} alt="background image" onClick={()=>setCoverModalOpen(true)} />
           
           
           <i className="fa-regular fa-pen-to-square" onClick={onEdit}></i>
         </div>
         <div className="content">
 
-          {
-            !currentProfile?.profileLink ? (
+          {/* {
+            currentProfile?.profileLink ? (
               <img src={avatar} alt="profile" onClick={() => setModalOpen(true)} />
             ):(
               <img src={Object.values(currentProfile).length === 0
                 ? currentUser.profileLink
                 : currentProfile?.profileLink} alt="profile picture" onClick={() => setModalOpen(true)} />
             )
-          }
+          } */}
+
+<img src={currentUser.profileLink} alt="background image" onClick={()=>setModalOpen(true)} />
+
           
           <div className="user_info">
             <p className="user_name">

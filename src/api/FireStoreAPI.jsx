@@ -170,3 +170,36 @@ export const getComments = (postId, setComments) => {
     console.log(err);
   }
 };
+
+//todo: get all users
+export const getAllUsers = (setAllUsers) => {
+  onSnapshot(userRef, (response) => {
+    setAllUsers(
+      response.docs.map((docs) => {
+        return { ...docs.data(), id: docs.id };
+      })
+    );
+  });
+};
+ 
+//todo: update the posted post
+export const updatePost = (id, status) => {
+  let docToUpdate = doc(postsRef, id);
+  try {
+    updateDoc(docToUpdate, { status });
+    toast.success("Post has been updated!");
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+//todo: delete the posted post
+export const deletePost = (id) => {
+  let docToDelete = doc(postsRef, id);
+  try {
+    deleteDoc(docToDelete);
+    toast.success("Post has been Deleted!");
+  } catch (err) {
+    console.log(err);
+  }
+};
