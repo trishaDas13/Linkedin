@@ -21,7 +21,7 @@ const Layout = () => {
 
   return (
     <div>
-        <Topbar />
+        <Topbar currentUser={currentUser}/>
         <Routes>
           <Route
             path= "/home"

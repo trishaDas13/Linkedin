@@ -22,7 +22,7 @@ const ProfileEdit = ({ currentUser, onEdit }) => {
     <div className="profileEdit">
       <div className="formNav">
         <h3>Edit Intro</h3>
-        <button onClick={onEdit}>❌</button>
+        <button onClick={onEdit}><i class="fa-regular fa-circle-xmark"></i></button>
       </div>
       <p>* indicates required</p>
       <form action="">
@@ -72,10 +72,10 @@ const ProfileEdit = ({ currentUser, onEdit }) => {
           </div>
         </div>
         {/* Skill */}
-        <div className="skill">
+        <div className="skill ">
           <h3>Skills*</h3>
           <div className="skillArea">
-            <div className="skills">
+            <div className="skill_item">
               <input
                 onChange={getInput}
                 name="skill1"
@@ -85,6 +85,7 @@ const ProfileEdit = ({ currentUser, onEdit }) => {
                 required
               />
               <input
+              
                 onChange={getInput}
                 name="skill2"
                 type="text"
@@ -93,8 +94,9 @@ const ProfileEdit = ({ currentUser, onEdit }) => {
                 required
               />
             </div>
-            <div className="skills">
+            <div className="skill_item">
               <input
+              
                 onChange={getInput}
                 name="skill3"
                 type="text"
@@ -103,6 +105,7 @@ const ProfileEdit = ({ currentUser, onEdit }) => {
                 required
               />
               <input
+              
                 onChange={getInput}
                 name="skill4"
                 type="text"
@@ -114,7 +117,7 @@ const ProfileEdit = ({ currentUser, onEdit }) => {
           </div>
         </div>
         {/* Current Position  */}
-        <div className="current_positon">
+        <div className="personal_details">
           <h3>Current Position</h3>
           <div className="name1">
             <label htmlFor="username">Industry Name:* </label>
@@ -140,7 +143,7 @@ const ProfileEdit = ({ currentUser, onEdit }) => {
           </div>
         </div>
         {/* Education Background  */}
-        <div className="current_positon">
+        <div className="personal_details">
           <h3>Education Background</h3>
           <div className="name1">
             <label htmlFor="username">University Name:* </label>
@@ -166,7 +169,7 @@ const ProfileEdit = ({ currentUser, onEdit }) => {
           </div>
         </div>
         {/* Location  */}
-        <div className="current_positon">
+        <div className="personal_details">
           <h3>Location</h3>
           <div className="name1">
             <label htmlFor="username">Country:* </label>
@@ -206,7 +209,7 @@ const ProfileEdit = ({ currentUser, onEdit }) => {
         <div className="skill">
           <h3>Contact Information</h3>
           <div className="skillArea">
-            <div className="skills conatct">
+            <div className="skill_item">
               <input
                 onChange={getInput}
                 name="contact1"
@@ -222,7 +225,7 @@ const ProfileEdit = ({ currentUser, onEdit }) => {
                 value={editInputs.contact2}
               />
             </div>
-            <div className="skills">
+            <div className="skill_item">
               <input
                 onChange={getInput}
                 name="contact3"
@@ -240,7 +243,7 @@ const ProfileEdit = ({ currentUser, onEdit }) => {
             </div>
           </div>
         </div>
-        <button onClick={updateProfileData}>Save</button>
+        <button onClick={updateProfileData} className="saveForm">Save</button>
       </form>
     </div>
   );

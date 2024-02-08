@@ -78,7 +78,7 @@ const LikeButton = ({ userId, postId,currentUser }) => {
           name = "comment"
         />
          <button className="add-comment-btn" onClick={addComment}>
-            Add Comment
+            Add 
           </button>
 
           {comments.length > 0 ? (
@@ -86,9 +86,10 @@ const LikeButton = ({ userId, postId,currentUser }) => {
               return (
                 <div className="all-comments" key={nanoid()}>
                   <p className="name">{comment.name}</p>
+                  <p className="timestamp">{comment.timeStamp}</p>
                   <p className="comment">{comment.comment}</p>
 
-                  <p className="timestamp">{comment.timeStamp}</p>
+                  
                   
                 </div>
               );

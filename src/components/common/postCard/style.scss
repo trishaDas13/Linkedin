@@ -60,6 +60,39 @@
         hr{
             opacity: 0.4;
         }
+        .user_comment_box{
+            position: relative;
+            .all-comments{
+                background: rgb(242,242,242);
+                border-radius: 6px;
+                padding: 1rem;
+                margin-bottom: 0.7rem;
+                .name{
+                    font-weight: 600;
+                }
+                .timestamp{
+                    font-size: 10px;
+                    color: gray;
+                }
+                .comment{
+                    margin-top: 0.7rem;
+                }
+            }
+            .add-comment-btn{
+                position: absolute;
+                top: 15px;
+                right: 60px;
+                background: rgb(10,102,194);
+                border: none;
+                outline: none;
+                padding: 0.2rem 0.5rem;
+                border-radius: 20px;
+                color: white;
+                font-weight: 600;
+                cursor: pointer;
+                z-index: 999;
+            }
+        }
     }
     .edit_del{
         position: absolute;

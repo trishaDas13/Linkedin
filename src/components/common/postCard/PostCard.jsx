@@ -33,7 +33,7 @@ const PostCard = ({ posts, getEditData}) => {
               id: posts?.userID,
               email: posts?.userEmail
             }
-          })}>{posts.userName}</p>
+          })}> {allUsers.filter((user) => user.id === posts.userID)[0]?.name}</p>
           <p className="headline">{currentUser.headline}</p>
           <p className="timeline">{posts.timeStamp}</p>
         </div>

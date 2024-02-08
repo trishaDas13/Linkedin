@@ -1,0 +1,112 @@
+.profileEdit{
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid rgba(168, 168, 168, 0.589);
+    margin-top: 4rem;
+    max-width: 800px;
+    width: 100%;
+    .formNav{
+        background-color: rgba(168, 168, 168, 0.589);
+        display: flex;
+        padding: 1rem 2rem;
+        justify-content: space-between;
+        align-items: center;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        button{
+            background: transparent;
+            outline: none;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            &:hover{
+                background-color: rgba(168, 168, 168, 0.789);
+                transition: 0.3s ease-in-out;
+                cursor: pointer;
+            }
+            i{
+                font-size: 20px;
+            }
+        }
+    }
+    p{
+        font-size: 12px;
+        color: grey;
+    }
+    form{
+        padding: 2rem;
+        .personal_details{
+            .name1{
+                display: flex;
+                gap: 4px;
+                flex-direction: column;
+                margin: 1rem;
+                label{
+                    font-size: 12px;
+                }
+                input, textarea{
+                    padding: 7px;
+                    border-radius: 6px;
+                    font-size: 16px;
+                    background: #fbfbfb;
+                    border: 2px solid transparent;
+                    height: 36px;
+                    box-shadow: 0 0 0 1px #dddddd, 0 2px 4px 0 rgb(0 0 0 / 7%), 0 1px 1.5px 0 rgb(0 0 0 / 5%);
+                    &:focus{
+                        border: 2px solid #000;
+                        border-radius: 4px;
+                    }
+                
+                }
+                textarea{
+                    resize: none;
+                    height: 200px;
+                }
+            }
+            
+        }
+        .skill{
+            .skillArea{
+                width: 100%;
+                .skill_item{
+                    display: flex;
+                    justify-content: space-around;
+                    padding: 0.7rem 0;
+                    flex-wrap: wrap;
+                    gap: 10px;
+                    input{
+                        padding: 7px;
+                    border-radius: 6px;
+                    font-size: 16px;
+                    background: #fbfbfb;
+                    border: 2px solid transparent;
+                    height: 36px;
+                    box-shadow: 0 0 0 1px #dddddd, 0 2px 4px 0 rgb(0 0 0 / 7%), 0 1px 1.5px 0 rgb(0 0 0 / 5%);
+                    &:focus{
+                        border: 2px solid #000;
+                        border-radius: 4px;
+                    }
+                    }
+                }
+            }
+        }
+        .saveForm{
+            background-color: rgb(9,97,185);
+            border: 2px solid rgb(9,97,185);
+            color: white;
+            font-weight: 500;
+            outline: none;
+            padding: 0.7rem 3.5rem;
+            font-size: 16px;
+            float: right;
+            border-radius: 30px;
+            margin: 1rem;
+            cursor: pointer;
+            &:hover{
+                background-color: rgba(9, 97, 185, 0.281);
+                color: rgb(9,97,185);
+            }
+        }
+    }
+}

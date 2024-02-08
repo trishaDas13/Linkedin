@@ -160,7 +160,9 @@ const ProfileCard = ({ currentUser, onEdit }) => {
         </div>
       </div>
       <div className="user_about">
+        <div className="heading">
         <h2>About</h2>
+        </div>
         <i className="fa-regular fa-pen-to-square" onClick={onEdit}></i>
         <p>
         {Object.values(currentProfile).length === 0
@@ -169,7 +171,9 @@ const ProfileCard = ({ currentUser, onEdit }) => {
         </p>
       </div>
       <div className="user_skills">
+        <div className="heading">
         <h2>Skills</h2>
+        </div>
         <i className="fa-regular fa-pen-to-square" onClick={onEdit}></i>
         <div className="single_skill">
           <img src={skill} alt="skill" />
@@ -208,7 +212,9 @@ const ProfileCard = ({ currentUser, onEdit }) => {
         </div>
       </div>
       <div className="user_feed">
+        <div className="heading">
         <h2>Activity</h2>
+        </div>
         <div className="feed">
         {allStatuses
           .filter((item) => {

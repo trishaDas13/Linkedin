@@ -6,7 +6,6 @@ import {
   JobsIcon,
   NetworkIcon,
   HomeIcon,
-  SearchIcon
 } from "./SVGstorage";
 import './style.scss';
 import avatar from '../../../assets/avatar.png';
@@ -14,8 +13,8 @@ import { Link } from "react-router-dom";
 import ResponsiveNav from "./ResponsiveNav";
 import ProfilePopUp from "../profilePopup/ProfilePopUp";
 
-const Topbar = () => {
-    const [popupOpen, setPopupOpen] = useState(false);
+const Topbar = ({currentUser}) => {
+   const [popupOpen, setPopupOpen] = useState(false);
 
   const togglePopup = () => {
     setPopupOpen(!popupOpen);
@@ -72,7 +71,7 @@ const Topbar = () => {
             </ul>
             <div className="profile icon">
                 <img 
-                    src={avatar} 
+                    src={currentUser?.profileLink} 
                     alt="my avatar" 
                     title="My profile"
                     onClick={togglePopup}

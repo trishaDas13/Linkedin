@@ -7,7 +7,11 @@ const HomeProfileBar = ({currentUser}) => {
     const navigate = useNavigate();
 
     const navigateToProfile = () =>{
-        navigate('/profile');
+        navigate("/profile", {
+            state: {
+              id: currentUser?.id,
+            },
+          })
     }
   return (
     <div className='home_profile_bar'>
