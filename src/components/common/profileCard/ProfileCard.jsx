@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import "./style.scss";
 import background from "../../../assets/background.jpg";
 import avatar from "../../../assets/avatar.png";
@@ -7,15 +7,43 @@ import PostCard from "../postCard/PostCard";
 import {
   getSingleUser,
   getSingleStatus,
-  getStatus,
+  editProfile
 } from "../../../api/FireStoreAPI";
 import { useLocation } from "react-router-dom";
+import { uploadProfileImage as uploadProfileImageAPI } from "../../../api/ImageStoreAPI";
+import { uploadCoverImage as uploadCoverImageAPI } from "../../../api/ImageStoreAPI";
+import FileUploadModal from "../fileUploadModal/FileUploadModal";
+import CoverUploadModal from "../fileUploadModal/CoverUploadModal";
 
 const ProfileCard = ({ currentUser, onEdit }) => {
   const [allStatuses, setAllStatus] = useState([]);
   const [currentProfile, setCurrentProfile] = useState({});
+  const[profilePhoto, setProfilePhoto] = useState({});
+  const[coverPhoto, setCoverPhoto] = useState({});
+  const [modalOpen, setModalOpen] = useState(false);
+  const [coverModalOpen, setCoverModalOpen] = useState(false);
+  const [progress, setProgress] = useState(0);
+ 
   const location = useLocation();
 
+  //todo: get profile images 
+  const getProfileImage = (e) =>{
+    setProfilePhoto(e.target.files[0])
+  }
+
+  //todo: get cover images 
+  const getCoverImage = (e) =>{
+    setCoverPhoto(e.target.files[0])
+  }
+  //todo: pass the data to ImageStore for profile
+  const uploadProfileImage = () =>{
+    uploadProfileImageAPI(profilePhoto, currentUser?.id, setModalOpen, setProgress);
+  }
+   //todo: pass the data to ImageStore for cover
+   const uploadCoverImage = () => {
+    uploadCoverImageAPI(coverPhoto,  currentUser?.id, setCoverModalOpen, setProgress);
+   }
+  //todo: useMemo hook
   useMemo(() => {
     if (location?.state?.id) {
       getSingleStatus(setAllStatus, location?.state?.id);
@@ -26,15 +54,54 @@ const ProfileCard = ({ currentUser, onEdit }) => {
     }
   }, []);
 
+
+
   return (
     <>
+    <FileUploadModal
+      modalOpen={modalOpen}
+      setModalOpen={setModalOpen}
+      getProfileImage = {getProfileImage}
+      uploadProfileImage= {uploadProfileImage}
+      profilePhoto={profilePhoto}
+      progress={progress}
+    />
+     <CoverUploadModal
+        modalOpen={coverModalOpen} 
+        setModalOpen={setCoverModalOpen} 
+        getCoverImage={getCoverImage}
+        uploadCoverImage={uploadCoverImage} 
+        coverPhoto={coverPhoto}
+        progress={progress}
+      />
       <div className="user_profile_card">
         <div className="user_img">
-          <img src={background} alt="background image" />
+
+          {
+            !currentProfile?.coverLink ? (
+              <img src={background} alt="background image" onClick={()=>setCoverModalOpen(true)}/>
+            ) : (
+              <img src={Object.values(currentProfile).length === 0
+                ? currentUser.coverLink
+                : currentProfile?.coverLink} alt="background image" onClick={()=>setCoverModalOpen(true)}/>
+            )
+          }
+          
+          
           <i className="fa-regular fa-pen-to-square" onClick={onEdit}></i>
         </div>
         <div className="content">
-          <img src={avatar} alt="profile picture" />
+
+          {
+            !currentProfile?.profileLink ? (
+              <img src={avatar} alt="profile" onClick={() => setModalOpen(true)} />
+            ):(
+              <img src={Object.values(currentProfile).length === 0
+                ? currentUser.profileLink
+                : currentProfile?.profileLink} alt="profile picture" onClick={() => setModalOpen(true)} />
+            )
+          }
+          
           <div className="user_info">
             <p className="user_name">
               {Object.values(currentProfile).length === 0
