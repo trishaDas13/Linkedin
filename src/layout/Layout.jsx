@@ -29,15 +29,15 @@ const Layout = () => {
           />
           <Route
             path= "/network"
-            element= {<Network />}
+            element= {<Network currentUser={currentUser} />}
           />
           <Route
             path= "/quotes"
-            element= {<Quotes />}
+            element= {<Quotes currentUser={currentUser} />}
           />
           <Route
             path= "/jobs"
-            element= {<Jobs />}
+            element= {<Jobs currentUser={currentUser} />}
           />
           <Route
             path= "/profile"

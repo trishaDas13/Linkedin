@@ -4,8 +4,10 @@ import { RegisterAPI, GoogleSignInAPI } from "../../api/AuthApi";
 import logo from "../../assets/logo.svg";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import Home from "../../pages/home/Home";
+
 import { postUserData } from "../../api/FireStoreAPI";
+import { nanoid } from 'nanoid';
+
 
 
 const RegisterCtx = () => {
@@ -19,8 +21,11 @@ const RegisterCtx = () => {
       let res = await RegisterAPI(credentails.email, credentails.password);
       toast.success("Successfully created your account");
       postUserData({
+        userID: nanoid(),
         name: credentails.name,
-        email: credentails.email
+        email: credentails.email,
+        profileLink: 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQIwGY3_exadhuefOpbrSS3dmvdXtSeX-M5fO5tnFieVmc4J6Ly',
+        coverLink: 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRbpjWJDoS2D95VCC3QKff-ii6wVLXncvHLE8IIkisXKQITxIUw'
       })
       localStorage.setItem("userEmail", res.user.email);
       navigate("/home");

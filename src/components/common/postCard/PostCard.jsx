@@ -1,16 +1,20 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import "./style.scss";
-import avatar from "../../../assets/avatar.png";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import LikeButton from "../likeButton/LikeButton";
-import { getCurrentUser,getAllUsers, deletePost } from "../../../api/FireStoreAPI";
+import {
+  getCurrentUser,
+  getAllUsers,
+  deletePost,
+  getConnections,
+} from "../../../api/FireStoreAPI";
 
-
-const PostCard = ({ posts, getEditData}) => {
+const PostCard = ({ posts, getEditData }) => {
   const [showFullStatus, setShowFullStatus] = useState(false);
+  const [isConnected, setIsConnected] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
-  const[allUsers, setAllUsers] = useState([]);
-  const maxStatusLength = 150; 
+  const [allUsers, setAllUsers] = useState([]);
+  const maxStatusLength = 150;
   const navigate = useNavigate();
 
   const toggleStatus = () => {
@@ -20,20 +24,39 @@ const PostCard = ({ posts, getEditData}) => {
     getCurrentUser(setCurrentUser);
     getAllUsers(setAllUsers);
   }, []);
-  
-  return (
+
+  useEffect(() => {
+    getConnections(currentUser.id, posts.userID, setIsConnected);
+  }, [currentUser.id, posts.userID]);
+
+
+  return  isConnected || currentUser.id === posts.userID ? (
+    
     <div className="postCard">
       <div className="post_user_profile">
-        <img src={allUsers
+        <img
+          src={
+            allUsers
               .filter((item) => item.id === posts.userID)
-              .map((item) => item.profileLink)[0]} alt="profilePic" />
+              .map((item) => item.profileLink)[0]
+          }
+          alt="profilePic"
+        />
         <div className="content">
-          <p className="name" onClick={() => navigate('/profile',{
-            state:{
-              id: posts?.userID,
-              email: posts?.userEmail
+          <p
+            className="name"
+            onClick={() =>
+              navigate("/profile", {
+                state: {
+                  id: posts?.userID,
+                  email: posts?.userEmail,
+                },
+              })
             }
-          })}> {allUsers.filter((user) => user.id === posts.userID)[0]?.name}</p>
+          >
+            {" "}
+            {allUsers.filter((user) => user.id === posts.userID)[0]?.name}
+          </p>
           <p className="headline">{currentUser.headline}</p>
           <p className="timeline">{posts.timeStamp}</p>
         </div>
@@ -41,7 +64,9 @@ const PostCard = ({ posts, getEditData}) => {
       {posts.status.length > maxStatusLength ? (
         <>
           <p className="postStatus">
-            {showFullStatus ? posts.status : `${posts.status.slice(0, maxStatusLength)}...`}
+            {showFullStatus
+              ? posts.status
+              : `${posts.status.slice(0, maxStatusLength)}...`}
           </p>
           <button onClick={toggleStatus} className="toggleSeeMore">
             {showFullStatus ? "See Less" : "See More"}
@@ -51,26 +76,26 @@ const PostCard = ({ posts, getEditData}) => {
         <p className="postStatus">{posts.status}</p>
       )}
       <LikeButton
-         userId={currentUser?.id}
-         currentUser={currentUser}
-         postId={posts.id}
+        userId={currentUser?.id}
+        currentUser={currentUser}
+        postId={posts.id}
       />
-     {
-      currentUser.id === posts.userID ? (
+      {currentUser.id === posts.userID ? (
         <div className="edit_del">
-        <i 
-          className="fa-regular fa-pen-to-square"
-          onClick={() => getEditData(posts)}
-        ></i>
-        <i className="fa-solid fa-trash" onClick={() => deletePost(posts.id)}></i>
-      </div>
+          <i
+            className="fa-regular fa-pen-to-square"
+            onClick={() => getEditData(posts)}
+          ></i>
+          <i
+            className="fa-solid fa-trash"
+            onClick={() => deletePost(posts.id)}
+          ></i>
+        </div>
       ) : (
         <></>
-      )
-     }
-      
+      )}
     </div>
-  );
+  ) : (<></>);
 };
 
 export default PostCard;
