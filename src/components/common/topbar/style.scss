@@ -19,7 +19,6 @@
             position: relative;
             input{
                 height: 30px;
-                max-width: 250px;
                 width: 100%;
                 padding: 0.8rem;
                 color: grey;
@@ -77,6 +76,36 @@
         box-shadow: 0 0 5px grey;
         @media (max-width: 783px){
             display: inline;
+        }
+    }
+    .searchResults{
+        background-color: white;
+        border-radius: 10px;
+        width: 300px;
+        height: auto;
+        border: 1px solid rgba(158, 155, 155, 0.488);
+        position: absolute;
+        z-index: 20;
+        top: 3rem;
+        left: 4rem;
+        padding: 1rem;
+        .search-inner{
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-weight: 500;
+            border-bottom: 1px solid rgba(167, 164, 164, 0.5);
+            padding: 0.7rem;
+            img{
+                width: 45px;
+                height: 45px;
+                border-radius: 50%;
+            }
+            &:hover{
+                cursor: pointer;
+                background-color: rgba(167, 164, 164, 0.5);
+                border-radius: 8px;
+            }
         }
     }
 }

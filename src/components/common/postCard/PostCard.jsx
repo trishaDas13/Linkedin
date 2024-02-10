@@ -75,6 +75,15 @@ const PostCard = ({ posts, getEditData }) => {
       ) : (
         <p className="postStatus">{posts.status}</p>
       )}
+      {
+        posts.postImage ? (
+          <img src={posts.postImage} alt="post Image" className="postImage" />
+        ) : (
+          null
+        )
+      }
+      
+        
       <LikeButton
         userId={currentUser?.id}
         currentUser={currentUser}

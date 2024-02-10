@@ -7,6 +7,8 @@ import { postStatus, getStatus, updatePost } from "../../../api/FireStoreAPI";
 import PostCard from "../postCard/PostCard";
 import GetTime from "./GetTime";
 import { nanoid } from "nanoid";
+import { uploadPostImage } from "../../../api/ImageStoreAPI";
+
 
 const PostUpdate = ({ currentUser }) => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -14,7 +16,8 @@ const PostUpdate = ({ currentUser }) => {
   const [allStatuses, setAllStatus] = useState([]);
   const [currentPost, setCurrentPost] = useState({});
   const [isEdit, setIsEdit] = useState(false);
-  // const [postImage, setPostImage] = useState("");
+  const [postImage, setPosttImage] = useState("");
+  
 
   //todo: send status to firbase
   const sendStatus = async () => {
@@ -25,7 +28,7 @@ const PostUpdate = ({ currentUser }) => {
       userName: currentUser.name,
       postID: nanoid(),
       userID: currentUser.id,
-      // postImage: postImage,
+      postImage: postImage,
     };
     await postStatus(object);
     await setModalOpen(false);
@@ -41,7 +44,7 @@ const PostUpdate = ({ currentUser }) => {
   };
 
   const updateStatus = () => {
-    updatePost(currentPost.id, status)
+    updatePost(currentPost.id, status, postImage)
     setModalOpen(false);
   }
 
@@ -65,7 +68,7 @@ const PostUpdate = ({ currentUser }) => {
           </p>
         </div>
         <div className="postOption">
-          <div className="post_Opt">
+          <div className="post_Opt" onClick={()=>setModalOpen(true)}>
             <ImageGalleryIcon />
             Media
           </div>
@@ -82,9 +85,9 @@ const PostUpdate = ({ currentUser }) => {
           sendStatus={sendStatus}
           isEdit={isEdit}
           updateStatus={updateStatus}
-          // uploadPostImage={uploadPostImage}
-          // postImage={postImage}
-          // setPostImage={setPostImage}
+          uploadPostImage={uploadPostImage}
+          postImage={postImage}
+          setPosttImage={setPosttImage}
           setCurrentPost={setCurrentPost}
           currentPost={currentPost}
         />

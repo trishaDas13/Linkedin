@@ -33,9 +33,6 @@ const NetworkCtx = ({currentUser}) => {
             );
         })}
         </div>
-        <div className="globalConnection">
-            
-        </div>
     </div>
   )
 }

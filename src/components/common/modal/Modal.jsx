@@ -1,6 +1,10 @@
-import React from "react";
+import React, {useState} from "react";
 import { Button, Modal } from "antd";
 import "./style.scss";
+import { ImageGalleryIcon } from "../topbar/SVGstorage";
+import { Progress, Space } from 'antd';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 
 const ModalCtx = ({
   modalOpen,
@@ -9,8 +13,14 @@ const ModalCtx = ({
   status,
   sendStatus,
   isEdit,
-  updateStatus
+  updateStatus,
+  postImage,
+  setPosttImage,
+  uploadPostImage,
+  currentPost,
+  setCurrentPost
 }) => {
+  const[progress, setProgress] = useState(0);
   return (
     <>
       <Modal
@@ -20,9 +30,14 @@ const ModalCtx = ({
         }}
         open={modalOpen}
         onOk={() => {setModalOpen(false)
-          setStatus("")}}
+          setStatus("")
+          setCurrentPost('')
+          setPosttImage("")}}
         onCancel={() => {setModalOpen(false)
-                       setStatus("")}}
+                       setStatus("")
+                       setPosttImage("")
+                       setCurrentPost('')}}
+                       
         footer={
           <Button
             key="submit"
@@ -34,16 +49,38 @@ const ModalCtx = ({
           </Button>
         }
       >
-        <textarea
-          cols="30"
-          rows="10"
+        <ReactQuill
+          theme="snow"
           className="modalInput"
           placeholder="What do you want to talk about?"
-          onChange={(e) => {
-            setStatus(e.target.value);
-          }}
+          onChange={setStatus}
           value={status}
-        ></textarea>
+        />;
+        {
+          progress === 0 || progress === 100 ? <></> : (
+            <div className="progressBar">
+               <Progress type="circle" percent={progress} />
+            </div>
+          )
+        }
+
+        {
+            postImage.length > 0 || currentPost?.postImage?.length ? <>
+            <img src={postImage || currentPost?.postImage} alt="post Image" className="postImage"/>
+            <span className="crossImage" onClick={()=>setPosttImage('')}>X</span></> : null          
+        }
+
+        
+        <label htmlFor="pic-upload">
+          <ImageGalleryIcon/>       
+        <input 
+          type="file" 
+          id='pic-upload'
+          hidden
+          onChange={(event) =>
+            uploadPostImage(event.target.files[0], setPosttImage, setProgress)
+          }/>
+           </label>
       </Modal>
     </>
   );
