@@ -7,7 +7,7 @@ import Network from '../pages/Network/Network';
 import Quotes from '../pages/quotes/Quotes';
 import Jobs from '../pages/jobs/Jobs';
 import Profile from '../pages/profile/Profile';
-import Error from '../pages/errorPage/Error';
+import News from '../pages/news/News';
 
 
 
@@ -42,6 +42,10 @@ const Layout = () => {
           <Route
             path= "/profile"
             element= {<Profile currentUser={currentUser}/>}
+          />
+          <Route
+            path= "/news"
+            element= {<News/>}
           />
 
         </Routes>

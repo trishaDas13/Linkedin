@@ -47,12 +47,12 @@ const ResponsiveNav = () => {
           </div>
         </Link>
       </li>
-      {/* <li>
+      <li>
         <div className="notification icon">
           <NotificationIcon />
-          <p>Notification</p>
+          <p>News</p>
         </div>
-      </li> */}
+      </li>
     </ul>
   );
 };

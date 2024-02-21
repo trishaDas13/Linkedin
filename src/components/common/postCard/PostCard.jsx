@@ -16,6 +16,7 @@ const PostCard = ({ posts, getEditData }) => {
   const [allUsers, setAllUsers] = useState([]);
   const maxStatusLength = 150;
   const navigate = useNavigate();
+  console.log(currentUser.id,);
 
   const toggleStatus = () => {
     setShowFullStatus(!showFullStatus);
@@ -26,8 +27,8 @@ const PostCard = ({ posts, getEditData }) => {
   }, []);
 
   useEffect(() => {
-    getConnections(currentUser.id, posts.userID, setIsConnected);
-  }, [currentUser.id, posts.userID]);
+    getConnections( currentUser.id,posts.userID, setIsConnected);
+  }, [ currentUser.id,posts.userID]);
 
 
   return  isConnected || currentUser.id === posts.userID ? (

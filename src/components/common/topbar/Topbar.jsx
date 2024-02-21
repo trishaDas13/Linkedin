@@ -104,10 +104,12 @@ const Topbar = ({ currentUser }) => {
             </Link>
           </li>
           <li>
+            <Link to = "/news">
             <div className="notification icon">
               <NotificationIcon />
-              <p>Notification</p>
+              <p>News</p>
             </div>
+            </Link>
           </li>
         </ul>
         <div className="profile icon">
