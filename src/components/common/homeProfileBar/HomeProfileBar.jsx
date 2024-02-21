@@ -22,7 +22,7 @@ const HomeProfileBar = ({currentUser}) => {
             <img src={currentUser.profileLink} alt="" />
             <div className="names">
             <h4 onClick={navigateToProfile}>Hi, I’m {currentUser.name}!</h4>
-            {/* <p>{currentUser.headline}</p> */}
+           
             </div>
             <hr />
             <h3>Connect with me on:</h3>

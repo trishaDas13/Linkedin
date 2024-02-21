@@ -57,7 +57,9 @@ const PostCard = ({ posts, getEditData }) => {
             {" "}
             {allUsers.filter((user) => user.id === posts.userID)[0]?.name}
           </p>
-          <p className="headline">{currentUser.headline}</p>
+          <p className="headline">{allUsers
+              .filter((item) => item.id === posts.userID)
+              .map((item) => item.headline)[0]}</p>
           <p className="timeline">{posts.timeStamp}</p>
         </div>
       </div>

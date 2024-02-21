@@ -1,3 +1,9 @@
 .networkCtx{
     margin-top: 5rem;
+    .localConnection{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        justify-content: center;
+    }
 }
