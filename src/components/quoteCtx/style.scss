@@ -1,0 +1,35 @@
+.quoteContain{
+    display: flex;
+    justify-content: center;
+    .quote_block{
+        margin-top: 4rem;
+        width: 100%;
+        max-width: 800px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        border: 1px solid rgba(182, 182, 182, 0.678);
+        border-radius: 15px;
+        padding: 2rem;
+        background-color: rgb(250,249,247);
+        .hold_quote{
+            border: 1px solid rgba(182, 182, 182, 0.678);
+            font-weight: 700;
+            padding: 2rem;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: rgb(254, 254, 254);
+            border-radius: 10px;
+            gap: 10px;
+            &:hover{
+                cursor: pointer;
+                background-color: rgb(209,229,250);
+                transition: 0.5s ease-in-out;
+            }
+        }
+    }
+}
+
