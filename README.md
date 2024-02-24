@@ -65,5 +65,5 @@ bash
   <li>Contributions are welcome! Please feel free to open issues or pull requests for any improvements, bug fixes, or new features you'd like to see.</li>  
 </ul>
 
-### License
+## License
 This project is licensed under the MIT License.
