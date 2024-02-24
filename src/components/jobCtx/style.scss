@@ -1,6 +1,81 @@
-.job_contain{
-    margin-top: 3rem;
-    .image_container{
-        // background-image: url('https://media.istockphoto.com/id/1129644198/vector/recruitment-modern-line-design-style-vector-illustration.jpg?s=612x612&w=0&k=20&c=ZBHS-k5azwnflpGW5gRmseB4CxUOpUUmGA3I45mJk9E=');
+.job_contain {
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  .job_store {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 850px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.501);
+    border-radius: 10px;
+    border: 1px solid rgba(155, 155, 155, 0.603);
+    padding: 2rem;
+    .job_card {
+      background-color: white;
+      border-radius: 10px;
+      border: 1px solid rgba(155, 155, 155, 0.603);
+      padding: 1rem;
+      position: relative;
+      .job_name{
+        color: rgb(10,102,194);
+        font-weight: 600;
+      }
+      .co_name{
+        font-size: 14px;
+        color: rgb(197, 31, 25);
+      }
+      .area_boxes{
+        margin-top: 1rem;
+        font-weight: 600;
+        font-size: 14px;
+        i{
+            color: rgb(10,102,194);
+            margin-right: 10px;
+            width: 30px;
+        }
+      }
+      button{
+        background: rgb(10,102,194);
+        color: white;
+        font-weight: 600;
+        outline: none;
+        cursor: pointer;
+        padding: 0.5rem 1rem;
+        border: 2px solid rgb(10,102,194);
+        border-radius: 5px;
+        float: right;
+        font-size: 16px;
+        &:hover{
+            color:rgb(10,102,194);
+            background:white;
+            transition: 0.5s ease-in-out;
+        }
+      }
     }
+    .pagination{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 22px;
+        font-weight: 700;
+        button{
+            color: white;
+            background-color: rgb(10,102,194);
+            font-size: 22px;
+            padding: 0.3rem 1rem;
+            border: 2px solid rgb(10,102,194);
+            outline: none;
+            cursor: pointer;
+            border-radius: 5px;
+            &:hover{
+                color:rgb(10,102,194);
+                background:white;
+                transition: 0.5s ease-in-out;
+            }
+        }
+    }
+  }
 }
