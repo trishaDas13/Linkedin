@@ -9,7 +9,6 @@ A clone of LinkedIn's interface, implemented using React, Redux, Firebase, SCSS,
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Contributing](#contributing)
 - [License](#license)
 
 ## Introduction
@@ -37,13 +36,13 @@ This project is a clone of the LinkedIn platform, focusing on replicating its in
 1. Clone the repository:
 
 bash
-git clone https://github.com/your-username/linkedin-clone.git
+`git clone https://github.com/your-username/linkedin-clone.git`
 
 ### Install dependencies:
 
-cd linkedin-clone
+`cd linkedin-clone`
 
-npm install
+`npm install`
 
 ### Set up Firebase:
 
@@ -55,7 +54,7 @@ npm install
 
 ### Start the development server:
 
-npm start
+`npm start`
 
 ### Usage
 <ul>
