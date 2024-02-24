@@ -36,7 +36,7 @@ This project is a clone of the LinkedIn platform, focusing on replicating its in
 1. Clone the repository:
 
 bash
-`git clone [https://github.com/your-username/linkedin-clone.git](https://github.com/trishaDas13/Linkedin.git)`
+`git clone https://github.com/trishaDas13/Linkedin.git`
 
 ### Install dependencies:
 
