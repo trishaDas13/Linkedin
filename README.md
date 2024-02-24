@@ -58,7 +58,7 @@ bash
 
 ### Usage
 <ul>
-  <li>Visit http://localhost:3000 in your browser to view the application.</li>
+  <li>Visit https://linkedin-five-eta.vercel.app/ in your browser to view the application.</li>
   <li>Sign up or log in to start using the LinkedIn clone.</li>
   <li>Explore the various features and functionalities available.</li>
   <li>Contributing</li>
