@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./style.scss";
+import Loader from "../common/Loader/Loader";
 
 const QuoteCtx = () => {
   const [quote, setQuote] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   async function getQuote() {
     try {
@@ -11,18 +13,23 @@ const QuoteCtx = () => {
         "https://api.quotable.io/quotes/random?limit=30"
       );
       setQuote(res.data);
+      setLoading(false);
     } catch (err) {
-      console.log(err);
+      alert('refresh and try again');
+      setLoading(false);
     }
   }
 
   useEffect(() => {
+    setLoading(true);
     getQuote();
   }, []);
 
   return (
     <div className="quoteContain">
-      <div className="quote_block">
+      {
+        loading ? (<Loader/>) : (
+          <div className="quote_block">
         {quote.map((item) => {
           return (
             <div
@@ -39,6 +46,8 @@ const QuoteCtx = () => {
           );
         })}
       </div>
+        )
+      }
     </div>
   );
 };
