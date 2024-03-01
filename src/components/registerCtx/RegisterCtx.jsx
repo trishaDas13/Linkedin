@@ -91,9 +91,6 @@ const RegisterCtx = () => {
             <button onClick={registerUser}>Join Now</button>
           </form>
           <hr className="hr-text gradient" data-content="OR" />
-          <button className="googleLogin" onClick={googleSignIn}>
-            Continue with Google
-          </button>
           <p className="signInText">
             Already on LinkedIn? <Link to="/">Sign in</Link>
           </p>
