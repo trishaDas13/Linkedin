@@ -13,7 +13,7 @@ const NewsCtx = () => {
     setNews([...News]);
     setLoading(false);
 
-  })
+  },[])
 
   // async function getNews() {
   //   try {

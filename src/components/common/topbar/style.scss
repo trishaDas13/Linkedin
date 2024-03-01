@@ -20,12 +20,16 @@
             input{
                 height: 30px;
                 width: 100%;
+                max-width: 200px;
                 padding: 0.8rem;
                 color: grey;
                 background-color: rgb(237,243,248);
                 border: none;
                 outline: none;
                 border-radius: 5px;
+                @media (max-width: 543px){
+                    display: none;
+                }
             }
         }
         .nav_ul{
