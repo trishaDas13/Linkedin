@@ -27,11 +27,6 @@ const LoginCtx = () => {
     }
   }
 
-  //todo:  for google sign in
-  const googleSignIn = () =>{
-    GoogleSignInAPI();
-    navigate('/home')
-  }
 
   //todo: focus input fields if empty
   const focusInputFields = () =>{
@@ -81,7 +76,6 @@ const LoginCtx = () => {
           </form>
           <hr className="hr-text gradient" data-content="OR" />
           <div className="option_btns">
-            <button onClick={googleSignIn}>Continue with Google</button>
             <button>New to Linked in? <Link to='/register'>Join Now</Link></button>
           </div>
 
