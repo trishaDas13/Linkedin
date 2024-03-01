@@ -30,6 +30,10 @@
                 transition: 0.5s ease-in-out;
             }
         }
+        @media (max-width: 786px){
+            border: none;
+            background: transparent;
+        }
     }
 }
 
