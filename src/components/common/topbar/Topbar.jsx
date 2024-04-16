@@ -50,11 +50,11 @@ const Topbar = ({ currentUser }) => {
   //todo: set users from firestore
   useEffect(() => {
     getAllUsers(setUsers);
-  }, []);
+  }, [searchInput]);
 
   //todo: open user's profile
   const openUser = (user) => {
-    navigate("/profile", {
+    navigate(`/profile/${user.name}`, {
       state: {
         id: user.id,
         email: user.email,

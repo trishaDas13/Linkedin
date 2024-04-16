@@ -8,6 +8,7 @@ import Quotes from "../pages/quotes/Quotes";
 import Layout from "../layout/Layout";
 import Profile from "../pages/profile/Profile";
 import News from "../pages/news/News";
+import OtherUsers from "../pages/otherUsers/OtherUsers";
 
 export const router = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ export const router = createBrowserRouter([
       {
         path: "/profile",
         element: <Profile/>
+      },
+      {
+        path: "/profile/:name",
+        element: <OtherUsers/>
       },
       {
         path: "/news",

@@ -8,8 +8,7 @@ import Quotes from '../pages/quotes/Quotes';
 import Jobs from '../pages/jobs/Jobs';
 import Profile from '../pages/profile/Profile';
 import News from '../pages/news/News';
-
-
+import OtherUsers from '../pages/otherUsers/OtherUsers';
 
 const Layout = () => {
 
@@ -42,6 +41,10 @@ const Layout = () => {
           <Route
             path= "/profile"
             element= {<Profile currentUser={currentUser}/>}
+          />
+          <Route
+            path= "/profile/:name"
+            element= {<OtherUsers currentUser={currentUser}/>}
           />
           <Route
             path= "/news"
