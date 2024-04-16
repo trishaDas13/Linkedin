@@ -16,7 +16,7 @@ const PostCard = ({ posts, getEditData }) => {
   const [allUsers, setAllUsers] = useState([]);
   const maxStatusLength = 150;
   const navigate = useNavigate();
-  console.log(currentUser.id,);
+  // console.log(currentUser.id,);
 
   const toggleStatus = () => {
     setShowFullStatus(!showFullStatus);
@@ -27,18 +27,18 @@ const PostCard = ({ posts, getEditData }) => {
   }, []);
 
   useEffect(() => {
-    getConnections( currentUser.id,posts.userID, setIsConnected);
-  }, [ currentUser.id,posts.userID]);
+    getConnections( currentUser?.id,posts.userID, setIsConnected);
+  }, [ currentUser?.id,posts.userID]);
 
 
-  return  isConnected || currentUser.id === posts.userID ? (
+  return  isConnected || currentUser?.id === posts.userID ? (
     
     <div className="postCard">
       <div className="post_user_profile">
         <img
           src={
             allUsers
-              .filter((item) => item.id === posts.userID)
+              .filter((item) => item.id === posts?.userID)
               .map((item) => item.profileLink)[0]
           }
           alt="profilePic"
@@ -56,7 +56,7 @@ const PostCard = ({ posts, getEditData }) => {
             }
           >
             {" "}
-            {allUsers.filter((user) => user.id === posts.userID)[0]?.name}
+            {allUsers.filter((user) => user.id === posts?.userID)[0]?.name}
           </p>
           <p className="headline">{allUsers
               .filter((item) => item.id === posts.userID)

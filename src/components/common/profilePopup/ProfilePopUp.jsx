@@ -24,7 +24,7 @@ const ProfilePopUp = () => {
   return (
     <div className='popUp'>
         <div className="popUp_profile">
-            <img src={currentUser.profileLink} alt="" />
+            <img src={currentUser?.profileLink} alt="" />
             <div className="popUp_name">
                 <p className='popUp_name_user'> {currentUser?.name} </p>
                 <p> {currentUser?.email}</p>

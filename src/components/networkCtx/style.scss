@@ -1,9 +1,24 @@
-.networkCtx{
+.wrapper{
+    display: flex;
+    justify-content: center;
     margin-top: 5rem;
-    .localConnection{
-        display: flex;
-        flex-wrap: wrap;
-        gap: 30px;
-        justify-content: center;
+    padding: 0 5rem;
+    .networkCtx{
+        max-width: 750px;
+        border-radius: 15px;
+        padding: 2rem 0;
+        background-color: rgb(250,249,247);
+        border: 1px solid rgba(128, 128, 128, 0.575) ;
+        h3{
+            margin-left: 3.5rem;
+            margin-bottom: 2rem;
+            color: rgb(95, 95, 95);
+        }
+        .localConnection{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
     }
 }

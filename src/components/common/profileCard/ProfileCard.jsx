@@ -83,7 +83,7 @@ const ProfileCard = ({ currentUser, onEdit }) => {
           <img
             src={
               Object.values(currentProfile).length === 0
-                ? currentUser.coverLink
+                ? currentUser?.coverLink
                 : currentProfile?.coverLink
             }
             alt="background image"
@@ -96,7 +96,7 @@ const ProfileCard = ({ currentUser, onEdit }) => {
           <img
             src={
               Object.values(currentProfile).length === 0
-                ? currentUser.profileLink
+                ? currentUser?.profileLink
                 : currentProfile?.profileLink
             }
             alt="background image"
@@ -106,26 +106,26 @@ const ProfileCard = ({ currentUser, onEdit }) => {
           <div className="user_info">
             <p className="user_name">
               {Object.values(currentProfile).length === 0
-                ? currentUser.name
+                ? currentUser?.name
                 : currentProfile?.name}
             </p>
             <p className="user_headline">
               {Object.values(currentProfile).length === 0
-                ? currentUser.headline
+                ? currentUser?.headline
                 : currentProfile?.headline}
             </p>
             <div className="user_location">
               <span>
                 {Object.values(currentProfile).length === 0
-                  ? currentUser.city
+                  ? currentUser?.city
                   : currentProfile?.city}{" "}
                 •{" "}
                 {Object.values(currentProfile).length === 0
-                  ? currentUser.state
+                  ? currentUser?.state
                   : currentProfile?.state}{" "}
                 •{" "}
                 {Object.values(currentProfile).length === 0
-                  ? currentUser.country
+                  ? currentUser?.country
                   : currentProfile?.country}{" "}
                 •{" "}
               </span>
@@ -135,21 +135,21 @@ const ProfileCard = ({ currentUser, onEdit }) => {
           <div className="user_experience">
             <p>
               {Object.values(currentProfile).length === 0
-                ? currentUser.university
+                ? currentUser?.university
                 : currentProfile?.university}{" "}
               (
               {Object.values(currentProfile).length === 0
-                ? currentUser.pyear
+                ? currentUser?.pyear
                 : currentProfile?.pyear}
               )
             </p>
             <p>
               {Object.values(currentProfile).length === 0
-                ? currentUser.industry
+                ? currentUser?.industry
                 : currentProfile?.industry}
               (
               {Object.values(currentProfile).length === 0
-                ? currentUser.year
+                ? currentUser?.year
                 : currentProfile?.year}
               )
             </p>
@@ -163,7 +163,7 @@ const ProfileCard = ({ currentUser, onEdit }) => {
         <i className="fa-regular fa-pen-to-square" onClick={onEdit}></i>
         <p>
           {Object.values(currentProfile).length === 0
-            ? currentUser.about
+            ? currentUser?.about
             : currentProfile?.about}
         </p>
       </div>
@@ -176,7 +176,7 @@ const ProfileCard = ({ currentUser, onEdit }) => {
           <img src={skill} alt="skill" />
           <p>
             {Object.values(currentProfile).length === 0
-              ? currentUser.skill1
+              ? currentUser?.skill1
               : currentProfile?.skill1}
           </p>
         </div>
@@ -185,7 +185,7 @@ const ProfileCard = ({ currentUser, onEdit }) => {
           <img src={skill} alt="skill" />
           <p>
             {Object.values(currentProfile).length === 0
-              ? currentUser.skill2
+              ? currentUser?.skill2
               : currentProfile?.skill2}
           </p>
         </div>
@@ -194,7 +194,7 @@ const ProfileCard = ({ currentUser, onEdit }) => {
           <img src={skill} alt="skill" />
           <p>
             {Object.values(currentProfile).length === 0
-              ? currentUser.skill3
+              ? currentUser?.skill3
               : currentProfile?.skill3}
           </p>
         </div>
@@ -203,7 +203,7 @@ const ProfileCard = ({ currentUser, onEdit }) => {
           <img src={skill} alt="skill" />
           <p>
             {Object.values(currentProfile).length === 0
-              ? currentUser.skill4
+              ? currentUser?.skill4
               : currentProfile?.skill4}
           </p>
         </div>

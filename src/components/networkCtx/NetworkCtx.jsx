@@ -10,18 +10,19 @@ const NetworkCtx = ({currentUser}) => {
 
 
     const getCurrentUser = (id) => {
-      addConnection(currentUser.id, id);
+      addConnection(currentUser?.id, id);
     };
     useEffect(() => {
       getAllUsers(setUsers);
     }, []);
 
   return (
-    <div className='networkCtx'>
+    <div className="wrapper">
+      <div className='networkCtx'>
         <h3>People you may know</h3>
         <div className="localConnection">
             {users.map((user) => {
-            return user.id === currentUser.id ? (
+            return user.id === currentUser?.id ? (
             null
             ) : (
             <ConnectedUsers
@@ -33,6 +34,7 @@ const NetworkCtx = ({currentUser}) => {
             );
         })}
         </div>
+    </div>
     </div>
   )
 }
