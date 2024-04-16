@@ -128,7 +128,8 @@ const Topbar = ({ currentUser }) => {
       {searchInput.length === 0 ? (
         <></>
       ) : (
-        <div className="searchResults">
+        <div className="searchWrapper">
+          <div className="searchResults">
           {filteredUsers.length === 0 ? (
             <div className="search-inner" key={nanoid()}>
               No Results Found..
@@ -148,6 +149,7 @@ const Topbar = ({ currentUser }) => {
               </div>
             ))
           )}
+        </div>
         </div>
       )}
     </header>
