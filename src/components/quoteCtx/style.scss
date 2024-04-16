@@ -29,6 +29,9 @@
                 background-color: rgb(209,229,250);
                 transition: 0.5s ease-in-out;
             }
+            @media (max-width: 768px){
+                font-weight: 500;
+            }
         }
         @media (max-width: 786px){
             border: none;

@@ -25,7 +25,7 @@ const ConnectedUsers = ({ user, getCurrentUser, currentUser }) => {
         />
       </div>
       <div className="conact_content">
-        <img src={user.profileLink} alt="" />
+        <img src={user.profileLink} alt="user's profile image" />
         <div className="names">
           <h4>{user.name}</h4>
           <p>{user.headline}</p>

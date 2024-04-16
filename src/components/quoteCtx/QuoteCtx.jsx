@@ -15,7 +15,7 @@ const QuoteCtx = () => {
       setQuote(res.data);
       setLoading(false);
     } catch (err) {
-      alert('refresh and try again');
+      alert("refresh and try again");
       setLoading(false);
     }
   }
@@ -27,27 +27,27 @@ const QuoteCtx = () => {
 
   return (
     <div className="quoteContain">
-      {
-        loading ? (<Loader/>) : (
-          <div className="quote_block">
-        {quote.map((item) => {
-          return (
-            <div
-              className="hold_quote"
-              key={item._id}
-              title="Click to copy the Quote"
-              onClick={() => {
-                navigator.clipboard.writeText(`${item.content}`);
-              }}
-            >
-              <p className="quote">{item.content}</p>
-              <p className="author">-{item.author}</p>
-            </div>
-          );
-        })}
-      </div>
-        )
-      }
+      {loading ? (
+        <Loader />
+      ) : (
+        <div className="quote_block">
+          {quote.map((item) => {
+            return (
+              <div
+                className="hold_quote"
+                key={item._id}
+                title="Click to copy the Quote"
+                onClick={() => {
+                  navigator.clipboard.writeText(`${item.content}`);
+                }}
+              >
+                <p className="quote">{item.content}</p>
+                <p className="author">-{item.author}</p>
+              </div>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 };
