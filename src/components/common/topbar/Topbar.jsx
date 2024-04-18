@@ -20,6 +20,7 @@ const Topbar = ({ currentUser }) => {
   const [users, setUsers] = useState([]);
   const [filteredUsers, setFilteredUsers] = useState([]);
   const [searchInput, setSearchInput] = useState("");
+  const [searchWrapperClicked, setSearchWrapperClicked] = useState(true); 
   let navigate = useNavigate();
 
   const togglePopup = () => {
@@ -39,6 +40,7 @@ const Topbar = ({ currentUser }) => {
       setFilteredUsers(searched);
     } else {
       setFilteredUsers(users);
+      setSearchWrapperClicked(true);
     }
   };
 
@@ -62,16 +64,20 @@ const Topbar = ({ currentUser }) => {
     });
   };
 
+  const handleSearchWrapperClick = () => {
+    setSearchWrapperClicked(false); 
+    setSearchInput("");
+  };
 
   return (
     <header className="topBar">
       <nav>
         <div className="logo_search_field">
           <LinkedinLogo />
-          <SearchUsers setSearchInput={setSearchInput} />
+          <SearchUsers setSearchInput={setSearchInput} searchInput={searchInput}/>
         </div>
         <ul className="nav_ul">
-          <li>
+          <li  onClick={handleSearchWrapperClick}>
             <Link to="/home">
               <div className="home icon">
                 <HomeIcon />
@@ -79,7 +85,7 @@ const Topbar = ({ currentUser }) => {
               </div>
             </Link>
           </li>
-          <li>
+          <li  onClick={handleSearchWrapperClick}>
             <Link to="/network">
               <div className="network icon">
                 <NetworkIcon />
@@ -87,7 +93,7 @@ const Topbar = ({ currentUser }) => {
               </div>
             </Link>
           </li>
-          <li>
+          <li onClick={handleSearchWrapperClick}>
             <Link to="jobs">
               <div className="jobs icon">
                 <JobsIcon />
@@ -95,7 +101,7 @@ const Topbar = ({ currentUser }) => {
               </div>
             </Link>
           </li>
-          <li>
+          <li onClick={handleSearchWrapperClick}>
             <Link to="/quotes">
               <div className="quotes icon">
                 <QuotesIcon />
@@ -103,12 +109,12 @@ const Topbar = ({ currentUser }) => {
               </div>
             </Link>
           </li>
-          <li>
-            <Link to = "/news">
-            <div className="notification icon">
-              <NotificationIcon />
-              <p>News</p>
-            </div>
+          <li onClick={handleSearchWrapperClick}>
+            <Link to="/news">
+              <div className="notification icon">
+                <NotificationIcon />
+                <p>News</p>
+              </div>
             </Link>
           </li>
         </ul>
@@ -128,30 +134,32 @@ const Topbar = ({ currentUser }) => {
       {searchInput.length === 0 ? (
         <></>
       ) : (
-        <div className="searchWrapper">
-          <div className="searchResults">
-          {filteredUsers.length === 0 ? (
-            <div className="search-inner" key={nanoid()}>
-              No Results Found..
+        searchWrapperClicked &&
+          (<div className="searchWrapper" onClick={handleSearchWrapperClick}>
+            <div className="searchResults">
+              {filteredUsers.length === 0 ? (
+                <div className="search-inner" key={nanoid()}>
+                  No Results Found..
+                </div>
+              ) : (
+                filteredUsers.map((user) => (
+                  <div
+                    className="search-inner"
+                    key={nanoid()}
+                    onClick={() => {
+                      openUser(user);
+                      setSearchInput("");
+                    }}
+                  >
+                    <img src={user.profileLink} />
+                    <p className="name">{user.name}</p>
+                  </div>
+                ))
+              )}
             </div>
-          ) : (
-            filteredUsers.map((user) => (
-              <div
-                className="search-inner"
-                key={nanoid()}
-                onClick={() => {
-                    openUser(user)
-                    setSearchInput('')
-                }}
-              >
-                <img src={user.profileLink} />
-                <p className="name">{user.name}</p>
-              </div>
-            ))
-          )}
-        </div>
-        </div>
-      )}
+          </div>)
+        )}
+      
     </header>
   );
 };
