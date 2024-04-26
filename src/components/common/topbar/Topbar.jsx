@@ -9,7 +9,7 @@ import {
 } from "./SVGstorage";
 import "./style.scss";
 import { nanoid } from "nanoid";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import ResponsiveNav from "./ResponsiveNav";
 import ProfilePopUp from "../profilePopup/ProfilePopUp";
 import SearchUsers from "../searchUsers/SearchUsers";
@@ -20,7 +20,7 @@ const Topbar = ({ currentUser }) => {
   const [users, setUsers] = useState([]);
   const [filteredUsers, setFilteredUsers] = useState([]);
   const [searchInput, setSearchInput] = useState("");
-  const [searchWrapperClicked, setSearchWrapperClicked] = useState(true); 
+  const [searchWrapperClicked, setSearchWrapperClicked] = useState(true);
   let navigate = useNavigate();
 
   const togglePopup = () => {
@@ -65,7 +65,7 @@ const Topbar = ({ currentUser }) => {
   };
 
   const handleSearchWrapperClick = () => {
-    setSearchWrapperClicked(false); 
+    setSearchWrapperClicked(false);
     setSearchInput("");
   };
 
@@ -74,48 +74,71 @@ const Topbar = ({ currentUser }) => {
       <nav>
         <div className="logo_search_field">
           <LinkedinLogo />
-          <SearchUsers setSearchInput={setSearchInput} searchInput={searchInput}/>
+          <SearchUsers
+            setSearchInput={setSearchInput}
+            searchInput={searchInput}
+          />
         </div>
         <ul className="nav_ul">
-          <li  onClick={handleSearchWrapperClick}>
-            <Link to="/home">
+          <li onClick={handleSearchWrapperClick}>
+            <NavLink
+              to="/home"
+              className={`list_item ${({ isActive }) =>
+                isActive ? "active" : ""}`}
+            >
               <div className="home icon">
                 <HomeIcon />
                 <p>Home</p>
               </div>
-            </Link>
+            </NavLink>
           </li>
-          <li  onClick={handleSearchWrapperClick}>
-            <Link to="/network">
+          <li onClick={handleSearchWrapperClick}>
+            <NavLink
+              to="/network"
+              className={`list_item ${({ isActive }) =>
+                isActive ? "active" : ""}`}
+            >
               <div className="network icon">
                 <NetworkIcon />
                 <p>My Network</p>
               </div>
-            </Link>
+            </NavLink>
           </li>
           <li onClick={handleSearchWrapperClick}>
-            <Link to="jobs">
+            <NavLink
+              to="jobs"
+              className={`list_item ${({ isActive }) =>
+                isActive ? "active" : ""}`}
+            >
               <div className="jobs icon">
                 <JobsIcon />
                 <p>Jobs</p>
               </div>
-            </Link>
+            </NavLink>
           </li>
           <li onClick={handleSearchWrapperClick}>
-            <Link to="/quotes">
+            <NavLink
+              to="/quotes"
+              className={`list_item ${({ isActive }) =>
+                isActive ? "active" : ""}`}
+            >
               <div className="quotes icon">
                 <QuotesIcon />
                 <p>Quotes</p>
               </div>
-            </Link>
+            </NavLink>
           </li>
           <li onClick={handleSearchWrapperClick}>
-            <Link to="/news">
+            <NavLink
+              to="/news"
+              className={`list_item ${({ isActive }) =>
+                isActive ? "active" : ""}`}
+            >
               <div className="notification icon">
                 <NotificationIcon />
                 <p>News</p>
               </div>
-            </Link>
+            </NavLink>
           </li>
         </ul>
         <div className="profile icon">
@@ -134,8 +157,8 @@ const Topbar = ({ currentUser }) => {
       {searchInput.length === 0 ? (
         <></>
       ) : (
-        searchWrapperClicked &&
-          (<div className="searchWrapper" onClick={handleSearchWrapperClick}>
+        searchWrapperClicked && (
+          <div className="searchWrapper" onClick={handleSearchWrapperClick}>
             <div className="searchResults">
               {filteredUsers.length === 0 ? (
                 <div className="search-inner" key={nanoid()}>
@@ -157,9 +180,9 @@ const Topbar = ({ currentUser }) => {
                 ))
               )}
             </div>
-          </div>)
-        )}
-      
+          </div>
+        )
+      )}
     </header>
   );
 };

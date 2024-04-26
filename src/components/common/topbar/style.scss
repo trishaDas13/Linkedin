@@ -40,7 +40,7 @@
                 list-style-type: none;
                 cursor: pointer;
                 .icon{
-                    font-size: 10px;
+                    
                     display: flex;
                     flex-direction: column;
                     align-items: center;
@@ -48,6 +48,13 @@
                 a{
                     text-decoration: none;
                     color: black;
+                    font-size: 10px;
+                }
+                .active{
+                    color: rgb(16, 16, 192);
+                    font-size: 12px;
+                    font-weight: 700;
+                    
                 }
             }
             @media (max-width: 783px){

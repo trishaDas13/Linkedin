@@ -90,7 +90,7 @@ const ProfileCard = ({ currentUser, onEdit }) => {
             onClick={() => setCoverModalOpen(true)}
           />
 
-          <i className="fa-regular fa-pen-to-square" onClick={onEdit}></i>
+          
         </div>
         <div className="content">
           <img
@@ -160,7 +160,7 @@ const ProfileCard = ({ currentUser, onEdit }) => {
         <div className="heading">
           <h2>About</h2>
         </div>
-        <i className="fa-regular fa-pen-to-square" onClick={onEdit}></i>
+        {currentProfile?.email === undefined ? <i className="fa-regular fa-pen-to-square" onClick={onEdit}></i> : <></>}
         <p>
           {Object.values(currentProfile).length === 0
             ? currentUser?.about
@@ -171,7 +171,7 @@ const ProfileCard = ({ currentUser, onEdit }) => {
         <div className="heading">
           <h2>Skills</h2>
         </div>
-        <i className="fa-regular fa-pen-to-square" onClick={onEdit}></i>
+        {currentProfile?.email === undefined ? <i className="fa-regular fa-pen-to-square" onClick={onEdit}></i> : <></>}
         <div className="single_skill">
           <img src={skill} alt="skill" />
           <p>
