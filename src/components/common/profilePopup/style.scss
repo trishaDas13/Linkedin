@@ -1,58 +1,146 @@
-.popUp{
-    position: absolute;
-    z-index: 20;
-    right: 50px;
-    top: 40px;
-    border: 1px solid #ccc;
-    background-color: white;
-    padding: 1rem;
-    border-radius: 8px;
-    width: 250px;
-    .popUp_profile{
-        display: flex;
-        gap: 10px;
-        align-items: center;
-        img{
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-        }
-        .popUp_name_user{
-            font-weight: 600;
-            font-size: 14px;
-        }
-        p{
-            font-size: 12px;
-        }
+.popUp {
+  position: absolute;
+  z-index: 20;
+  right: 50px;
+  top: 40px;
+  border: 1px solid #ccc;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  width: 250px;
+  .popUp_profile {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    img {
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
     }
-    button{
-        background: transparent;
-        color: rgb(1, 91, 180);
-        border: 2px solid rgb(55,143,233);
-        outline: none;
-        cursor: pointer;
-        padding: 0.3rem;
-        border-radius: 20px;
-        width: 100%;
-        margin: 0.7rem;
-        font-weight: 600;
-        margin-left: 0;
-        text-decoration: none;
-        &:hover{
-            background-color: rgba(55, 144, 233, 0.26);
-        }
+    .popUp_name_user {
+      font-weight: 600;
+      font-size: 14px;
     }
-    hr{
-        opacity: 0.3;
+    p {
+      font-size: 12px;
     }
-    .signOut{
-        font-size: 14px;
-        cursor: pointer;
-        opacity: 0.7;
-        float: right;
-        &:hover{
-            opacity: 1;
+  }
+  button {
+    background: transparent;
+    font-size: 16px;
+    color: rgb(1, 91, 180);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 0.7rem;
+    gap: 30px;
+    border-radius: 10px;
+    width: 100%;
+    margin: 0.3rem 0;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s ease-in-out;
+    &:hover {
+      background-color: rgba(55, 144, 233, 0.26);
+      transition: 0.3s ease-in-out;
+    }
+  }
+  .signOut {
+    margin: 0.3rem 0;
+    color: red;
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    padding: 0.7rem;
+    gap: 30px;
+    transition: 0.3s ease-in-out;
+    border-radius: 10px;
+    span {
+      font-size: 18px;
+    }
+    i {
+      font-size: 22px;
+    }
+    &:hover {
+      border-radius: 10px;
+      background-color: rgba(241, 39, 39, 0.164);
+      transition: 0.3s ease-in-out;
+    }
+  }
+  .details_set {
+    .setting {
+      list-style-type: none;
+      margin: 0.3rem 0;
+      color: rgba(100, 99, 99, 0.993);
+      cursor: pointer;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      padding: 0.7rem;
+      gap: 30px;
+      transition: 0.3s ease-in-out;
+      border-radius: 10px;
+      i {
+        font-size: 22px;
+      }
+      &:hover {
+        background-color: rgba(100, 99, 99, 0.205);
+        transition: 0.3s ease-in-out;
+      }
+    }
+    .options {
+      // border: 2px solid red;
+      padding-left: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      cursor: pointer;
+    color: #AF8260;
+      details {
+        summary {
+          list-style-type: none;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          &:hover{
             text-decoration: underline;
+            color: #803D3B;
+            font-weight: 500;
+          }
         }
+        .theme_option {
+          display: flex;
+          align-items: left;
+          gap: 10px;
+          flex-direction: column;
+          padding-top: 0.5rem;
+          p {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding-left: 1.5rem;
+            &:hover{
+                text-decoration: underline;
+                color: #803D3B;
+                font-weight: 500;
+              }
+          }
+        }
+      }
+      p {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        &:hover{
+            text-decoration: underline;
+            color: #803D3B;
+            font-weight: 500;
+          }
+      }
+      
     }
+  }
 }
